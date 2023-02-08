@@ -8,9 +8,8 @@
       <GetTime/>
     </div>
     <div class = "showWeather">
-      <img id="currentWeather" src="//ssl.gstatic.com/onebox/weather/64/cloudy.png" />
-      <a>22°</a>
-    </div>
+      <GetWeather place="Neudenau" time="12:00 Uhr"></GetWeather>
+    </div> 
   </div>
   
   <div class="headerRightSection"> 
@@ -21,11 +20,10 @@
   
   <div class="content1"> 
     <div>
-      <GetPrayersTime time-type="sunrise"/>
+      <GetPrayersTime time-type="sunrise" id="content1Time"/>
     </div> 
     <div>
-      <img src="./assets/weather_sunny.png"/>
-      <a>22°</a>
+      <GetWeather place="Neudenau" time = "05:00 Uhr"></GetWeather>
     </div>
     <p>Imsak</p>
   </div>
@@ -35,8 +33,7 @@
       <GetPrayersTime time-type="morning"/>
     </div> 
     <div>
-      <img src="./assets/weather_sunny.png"/>
-      <a>22°</a>
+      <GetWeather place="Neudenau" time = "08:00 Uhr"></GetWeather>
     </div>
     <p>Sabah</p>
   </div>
@@ -46,8 +43,7 @@
       <GetPrayersTime time-type="noon"/>
     </div> 
     <div>
-      <img src="./assets/weather_sunny.png"/>
-      <a>22°</a>
+      <GetWeather place="Neudenau" time = "12:00 Uhr"></GetWeather>
     </div>
     <p>Öglen</p>
   </div>
@@ -57,8 +53,7 @@
       <GetPrayersTime time-type="afternoon"/>
     </div> 
     <div>
-      <img src="./assets/weather_sunny.png"/>
-      <a>22°</a>
+      <GetWeather place="Neudenau" time = "14:00 Uhr"></GetWeather>
     </div>
     <p>Ikindi</p>
   </div>
@@ -68,8 +63,7 @@
       <GetPrayersTime time-type="evening"/>
     </div> 
     <div>
-      <img src="./assets/weather_sunny.png"/>
-      <a>22°</a>
+      <GetWeather place="Neudenau" time = "17:00 Uhr"></GetWeather>
     </div>
     <p>Aksam</p>
   </div>
@@ -79,8 +73,7 @@
       <GetPrayersTime time-type="night"/>
     </div> 
     <div>
-      <img src="./assets/weather_sunny.png"/>
-      <a>22°</a>
+      <GetWeather place="Neudenau" time = "19:00 Uhr"></GetWeather>
     </div>
     <p>Yatsi</p>
   </div>
@@ -89,11 +82,13 @@
 <script>
 import GetPrayersTime from './components/GetPrayersTime.vue';
 import GetTime from './components/GetTime.vue';
+import GetWeather from './components/GetWeather.vue'
 
 export default {
   name: 'App',
   components: {
     GetPrayersTime,
+    GetWeather,
     GetTime
   }
 }
@@ -125,10 +120,7 @@ export default {
   margin-top: 35px;
 }
 
-#currentWeather{
-  width: 20%; 
-  height: auto;
-}
+.showTime 
 
 a,p{
   font-size: 20px;
