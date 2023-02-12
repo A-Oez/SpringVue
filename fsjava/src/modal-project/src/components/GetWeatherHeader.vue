@@ -24,7 +24,7 @@ export default {
   },
   methods:{
     async getWeather(){
-        fetch(`/api/weather/data?place=${this.place}&time=now`)
+        fetch(`/api/weather/data?place=${this.place}&time=jetzt`)
         .then(response => response.text())
         .then(data => {
           const jsonData = JSON.parse(data);

@@ -1,14 +1,15 @@
 <template>
   <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
+  <CacheTime/>
   <div class="headerLeftSection"> 
     <div class = "showCity">
       <a>Neudenau</a>
     </div>
     <div class = "showTime">
-      <GetTime/>
+      <GetTimeHeader/>
     </div>
     <div class = "showWeather">
-      <GetWeather place="Neudenau" time="12:00 Uhr"></GetWeather>
+      <GetWeatherHeader place="Neudenau"></GetWeatherHeader>
     </div> 
   </div>
   
@@ -20,60 +21,60 @@
   
   <div class="content1"> 
     <div>
-      <GetPrayersTime time-type="sunrise" id="content1Time"/>
+      <GetPrayersTime timeCacheKey="timeSunrise"/>
     </div> 
     <div>
-      <GetWeather place="Neudenau" time = "05:00 Uhr"></GetWeather>
+      <GetWeather place="Neudenau" timeCacheKey="timeSunrise"></GetWeather>
     </div>
     <p>Imsak</p>
   </div>
   
   <div class="content2">
     <div>
-      <GetPrayersTime time-type="morning"/>
+      <GetPrayersTime timeCacheKey="timeMorning"/>
     </div> 
     <div>
-      <GetWeather place="Neudenau" time = "08:00 Uhr"></GetWeather>
+      <GetWeather place="Neudenau" timeCacheKey="timeMorning"></GetWeather>
     </div>
     <p>Sabah</p>
   </div>
   
   <div class="content3"> 
     <div>
-      <GetPrayersTime time-type="noon"/>
+      <GetPrayersTime timeCacheKey="timeNoon"/>
     </div> 
     <div>
-      <GetWeather place="Neudenau" time = "12:00 Uhr"></GetWeather>
+      <GetWeather place="Neudenau" timeCacheKey="timeNoon"></GetWeather>
     </div>
     <p>Öglen</p>
   </div>
   
   <div class="content4"> 
     <div>
-      <GetPrayersTime time-type="afternoon"/>
+      <GetPrayersTime timeCacheKey="timeAfternoon"/>
     </div> 
     <div>
-      <GetWeather place="Neudenau" time = "14:00 Uhr"></GetWeather>
+      <GetWeather place="Neudenau" timeCacheKey="timeAfternoon"></GetWeather>
     </div>
     <p>Ikindi</p>
   </div>
   
   <div class="content5">
     <div>
-      <GetPrayersTime time-type="evening"/>
+      <GetPrayersTime timeCacheKey="timeEvening"/>
     </div> 
     <div>
-      <GetWeather place="Neudenau" time = "17:00 Uhr"></GetWeather>
+      <GetWeather place="Neudenau" timeCacheKey="timeEvening"></GetWeather>
     </div>
     <p>Aksam</p>
   </div>
   
   <div class="content6">
     <div>
-      <GetPrayersTime time-type="night"/>
+      <GetPrayersTime timeCacheKey="timeNight"/>
     </div> 
     <div>
-      <GetWeather place="Neudenau" time = "19:00 Uhr"></GetWeather>
+      <GetWeather place="Neudenau" timeCacheKey="timeNight"></GetWeather>
     </div>
     <p>Yatsi</p>
   </div>
@@ -81,15 +82,24 @@
 
 <script>
 import GetPrayersTime from './components/GetPrayersTime.vue';
-import GetTime from './components/GetTime.vue';
+import GetTimeHeader from './components/GetTimeHeader.vue';
 import GetWeather from './components/GetWeather.vue'
+import GetWeatherHeader from './components/GetWeatherHeader.vue';
+import CacheTime from './components/CacheTime.vue';
 
 export default {
   name: 'App',
   components: {
     GetPrayersTime,
     GetWeather,
-    GetTime
+    GetTimeHeader,
+    CacheTime,
+    GetWeatherHeader
+  },
+  mounted(){
+    setInterval(() => {
+      location.reload;
+    }, 900000) 
   }
 }
 </script>
