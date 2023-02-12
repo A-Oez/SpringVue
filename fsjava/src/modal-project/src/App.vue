@@ -107,10 +107,6 @@ export default {
 <style>
 @import 'https://fonts.googleapis.com/css?family=Playfair+Display:400,700i,900i';
 
-*{
-  box-sizing: border-box;
-}
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -126,13 +122,8 @@ export default {
   grid-row-gap: 100px;
   
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-size: 20px;
 }
-
-.wrap{
-  perspective-origin: 50% 50%;
-}
-
 
 .showCity, .showTime{
   position: absolute;
@@ -140,19 +131,9 @@ export default {
   font-size: 20px;
 }
 
-.showTime{
-  margin-top: 35px;
-  border: 2px solid #636866;
-}
+.showTime{margin-top: 35px;}
 
-a,p{
-  font-size: 20px;
-}
-
-#headerText{
-  background-color:#d1c9ca;
-  color: #413637;
-}
+#headerText{background-color:#d1c9ca;color: #413637;}
 
 .headerLeftSection { grid-area: 1 / 1 / 2 / 4;}
 .headerRightSection { grid-area: 1 / 4 / 2 / 8; border: 1px solid #636866;transition: background-color 0.5s ease;}
@@ -164,7 +145,8 @@ a,p{
 .content6 { grid-area: 2 / 7 / 4 / 8;transition: background-color 0.5s ease;}
 
 .headerRightSection:hover, .content1:hover, .content2:hover, .content3:hover, .content4:hover, .content5:hover, .content6:hover{
-  background-color: wheat;cursor: pointer;
+  background-color: wheat;
+  cursor: pointer;
 }
 
 .content1,.content2,.content3,.content4,.content5,.content6{
