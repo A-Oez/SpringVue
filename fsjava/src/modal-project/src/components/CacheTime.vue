@@ -10,7 +10,8 @@
         }
     },
     created(){
-        this.fetchData()  
+        this.fetchData();
+        this.updataData();
     },
     methods:{
         async fetchData(){
