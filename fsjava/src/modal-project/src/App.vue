@@ -19,7 +19,7 @@
     </a>
   </div>
   
-  <div class="content1"> 
+  <div class ="content1"> 
     <div>
       <GetPrayersTime timeCacheKey="timeSunrise"/>
     </div> 
@@ -78,6 +78,30 @@
     </div>
     <p>Yatsi</p>
   </div>
+  
+  <div class="control-center">
+    <div class="modal-menue">
+      <img src="./assets/write_icon_237016.png" @click="isOpen = true" style="margin-right: 10px;"/>
+      <img src="./assets/write_icon_237016.png" @click="isOpen = true"/>
+    </div>
+    <!--Zwei Modals, das erste um Einträge hinzuzufügen, das andere um Einträge auszugeben + einer check funktion, der check stand wird untern ausgegeben--> 
+    
+    <!--MODAL WRITE-->
+    <Modal :open="isOpen" @close="isOpen = !isOpen">
+      <div style = "text-align: left;">
+        <a style="color: black;font-size: 18px">Goal:</a>
+        <input form="text" style="margin-left: 10px;"/>
+      </div>
+    </Modal>
+
+    <!--MODAL READ-->
+    <Modal :open="isOpen" @close="isOpen = !isOpen">
+      <div style = "text-align: left;">
+        <a style="color: black;font-size: 18px">Goal:</a>
+        <input form="text" style="margin-left: 10px;"/>
+      </div>
+    </Modal>
+  </div>
 </template>
 
 <script>
@@ -86,6 +110,8 @@ import GetTimeHeader from './components/GetTimeHeader.vue';
 import GetWeather from './components/GetWeather.vue'
 import GetWeatherHeader from './components/GetWeatherHeader.vue';
 import CacheTime from './components/CacheTime.vue';
+import Modal from './components/Modal.vue';
+import {ref} from "vue";
 
 export default {
   name: 'App',
@@ -94,12 +120,22 @@ export default {
     GetWeather,
     GetTimeHeader,
     CacheTime,
-    GetWeatherHeader
+    GetWeatherHeader,
+    Modal
   },
   mounted(){
     setInterval(() => {
       location.reload;
     }, 900000) 
+  },
+  setup(){
+    const isOpen = ref(false)
+    return { isOpen }
+  },
+  methods:{
+    returnModalType(){
+      //IMAGE SRC ANSCHAUEN, DEMENTSPRECHEND TYPE ALS STRING AUSGEBEN UND ALS V-IF IN MODAL TYPE ANGEBEN
+    }
   }
 }
 </script>

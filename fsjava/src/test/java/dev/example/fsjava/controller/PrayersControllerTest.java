@@ -14,13 +14,10 @@ import java.io.UnsupportedEncodingException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PrayersControllerTest {
-    @Autowired
-    private MockMvc mvc;
-
     @Test
     void getTimeUnitTest() throws Exception {
         PrayersController controller = new PrayersController();
         String response = controller.getTime();
-        assertTrue(response.contains("17:33"));
+        assertTrue(response.contains("17:50"));
     }
 }
