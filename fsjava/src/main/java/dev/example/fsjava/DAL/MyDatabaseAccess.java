@@ -21,11 +21,12 @@ public class MyDatabaseAccess {
         List<DBModel> result = new ArrayList<>();
 
         for (Map<String, Object> row : rows) {
+            int ID = (int) row.get("ID");
             String type = row.get("type").toString();
             String value = row.get("value").toString();
             Boolean check = (Boolean) row.get("checkT");
 
-            DBModel model = new DBModel(type,value, check);
+            DBModel model = new DBModel(ID, type,value, check);
             result.add(model);
         }
         return result;

@@ -1,6 +1,7 @@
 package dev.example.fsjava.model;
 
 public class DBModel {
+    private int ID;
     private String type;
     private String value;
 
@@ -12,6 +13,14 @@ public class DBModel {
         this.value = value;
         this.check = check;
     }
+
+    public DBModel(int ID, String type, String value, boolean check) {
+        this.ID = ID;
+        this.type = type;
+        this.value = value;
+        this.check = check;
+    }
+
     public String getType() {
         return type;
     }
