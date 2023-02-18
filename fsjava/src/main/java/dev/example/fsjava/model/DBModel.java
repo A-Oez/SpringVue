@@ -32,4 +32,8 @@ public class DBModel {
     public boolean isCheck() {
         return check;
     }
+
+    public int getID() {
+        return ID;
+    }
 }

@@ -42,4 +42,16 @@ public class MyDatabaseAccess {
             return false;
         }
     }
+
+    public boolean updateData(DBModel model){
+        String query = "UPDATE content SET type=?, value=?, checkT=? WHERE id=?";
+        try {
+            jdbcTemplate.update(query, model.getType(), model.getValue(), model.isCheck(), model.getID());
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
 }

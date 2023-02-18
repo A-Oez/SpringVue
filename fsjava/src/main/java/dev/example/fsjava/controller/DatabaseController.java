@@ -33,4 +33,16 @@ public class DatabaseController {
             return new ResponseEntity<>("Fehler beim Erstellen des Datensatzes: " + ex.getMessage() , HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @PostMapping("/updateData")
+    public ResponseEntity<String> updateData(@RequestBody String jsonData){
+        try{
+            DBModel model = new Gson().fromJson(jsonData, DBModel.class);
+            if(myDatabaseAccess.updateData(model) == false){return new ResponseEntity<>("Fehler beim updaten des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut" , HttpStatus.INTERNAL_SERVER_ERROR);}
+            return new ResponseEntity<>("Datensatz erfolgreich geupdatet", HttpStatus.CREATED);
+        }
+        catch (Exception ex){
+            return new ResponseEntity<>("Fehler beim updaten des Datensatzes: " + ex.getMessage() , HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
