@@ -24,9 +24,13 @@ public class DatabaseController {
 
     @PostMapping("/postData")
     public ResponseEntity<String> addData(@RequestBody String jsonData){
-        DBModel model = new Gson().fromJson(jsonData, DBModel.class);
-        if(model.equals(null) || myDatabaseAccess.addData(model) == false){return new ResponseEntity<>("Fehler beim Erstellen des Datensatzes: " , HttpStatus.INTERNAL_SERVER_ERROR);}
-
-        return new ResponseEntity<>("Datensatz erfolgreich erstellt", HttpStatus.CREATED);
+        try{
+            DBModel model = new Gson().fromJson(jsonData, DBModel.class);
+            if(myDatabaseAccess.addData(model) == false){return new ResponseEntity<>("Fehler beim Erstellen des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut" , HttpStatus.INTERNAL_SERVER_ERROR);}
+            return new ResponseEntity<>("Datensatz erfolgreich erstellt", HttpStatus.CREATED);
+        }
+        catch (Exception ex){
+            return new ResponseEntity<>("Fehler beim Erstellen des Datensatzes: " + ex.getMessage() , HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

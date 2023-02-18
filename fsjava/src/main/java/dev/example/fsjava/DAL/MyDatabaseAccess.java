@@ -1,7 +1,6 @@
 package dev.example.fsjava.DAL;
 
 import dev.example.fsjava.model.DBModel;
-import dev.example.fsjava.service.JsonCreater;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -22,25 +21,24 @@ public class MyDatabaseAccess {
         List<DBModel> result = new ArrayList<>();
 
         for (Map<String, Object> row : rows) {
-            String id = row.get("idcontent").toString();
             String type = row.get("type").toString();
             String value = row.get("value").toString();
+            Boolean check = (Boolean) row.get("checkT");
 
-            DBModel model = new DBModel(id,type,value);
+            DBModel model = new DBModel(type,value, check);
             result.add(model);
         }
         return result;
     }
 
     public boolean addData(DBModel model){
-        String query = "INSERT INTO content (idcontent, type, value) VALUES (?, ?, ?)";
+        String query = "INSERT INTO content (type, value, checkT) VALUES (?, ?, ?)";
         try {
-            jdbcTemplate.update(query, model.getID(), model.getType(), model.getValue());
+            jdbcTemplate.update(query, model.getType(), model.getValue(), model.isCheck());
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
             return false;
         }
     }
-
 }
