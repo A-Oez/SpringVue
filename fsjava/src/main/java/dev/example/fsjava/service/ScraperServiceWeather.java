@@ -14,7 +14,6 @@ import java.util.List;
 
 @Service
 public class ScraperServiceWeather {
-    private static WeatherDTO dto = new WeatherDTO();
     private IHTMLDocument document;
 
     @Autowired
@@ -23,16 +22,11 @@ public class ScraperServiceWeather {
     public String extractData(String place, String time) throws IOException {
         String url = "https://www.google.de/search?q=wetter+" + place + "+" + time + "+" + "Uhr";
         List<Element> list = document.getData(url);
+
         String status = list.get(0).text();
         String image = list.get(1).attributes().get("src");
         String temperature = list.get(2).text();
-        setDTOAttributes(status,temperature,image);
-        return JsonCreater.create(dto);
-    }
 
-    private void setDTOAttributes(String status, String temperature, String image){
-        dto.setStatus(status);
-        dto.setTemperature(temperature);
-        dto.setImage(image);
+        return JsonCreater.create(new WeatherDTO(status,temperature,image));
     }
 }

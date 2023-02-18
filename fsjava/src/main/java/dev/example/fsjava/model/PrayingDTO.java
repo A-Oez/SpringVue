@@ -8,6 +8,17 @@ public class PrayingDTO {
     private String evening;
     private String night;
 
+    public PrayingDTO(String sunrise, String morning, String noon, String afternoon, String evening, String night){
+        this.sunrise = sunrise;
+        this.morning = morning;
+        this.noon = noon;
+        this.afternoon = afternoon;
+        this.evening = evening;
+        this.night = night;
+    }
+
+    public PrayingDTO(){}
+
     public void setSunrise(String sunrise) {
         this.sunrise = sunrise;
     }

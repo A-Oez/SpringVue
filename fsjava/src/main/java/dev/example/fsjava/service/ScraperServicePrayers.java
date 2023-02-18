@@ -11,6 +11,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,27 +22,35 @@ public class ScraperServicePrayers {
     private static List<String> valueList = new ArrayList<>();
     private IHTMLDocument document;
 
+    private static String Date;
+
     @Autowired
     public ScraperServicePrayers(@Qualifier("TypePrayers") HTMLType type){
         this.document = HTMLFactory.getInstances(type);
     }
 
     public String extractData() throws IOException {
-        if(valueList.size() != 0){return JsonCreater.create(dto);}
+        if(valueList.size() != 0 && getDate(valueList.get(0))){return JsonCreater.create(dto);}
         Elements elements = (Elements) document.getData(url).get(0);
         for(Element ads : elements){valueList.add(ads.text());}
         setDTOAttributes();
         return JsonCreater.create(dto);
     }
 
+    private boolean getDate(String elements){
+        boolean check = false;
+        if(elements.contains(String.valueOf(LocalDate.now().getDayOfMonth()))){check = true;}
+        return check;
+    }
+
     private void setDTOAttributes(){
         //first index = description
-        valueList.remove(0);
-        dto.setSunrise(valueList.get(0));
-        dto.setMorning(valueList.get(1));
-        dto.setNoon(valueList.get(2));
-        dto.setAfternoon(valueList.get(3));
-        dto.setEvening(valueList.get(4));
-        dto.setNight(valueList.get(5));
+        String Date = valueList.get(0);
+        dto.setSunrise(valueList.get(1));
+        dto.setMorning(valueList.get(2));
+        dto.setNoon(valueList.get(3));
+        dto.setAfternoon(valueList.get(4));
+        dto.setEvening(valueList.get(5));
+        dto.setNight(valueList.get(6));
     }
 }

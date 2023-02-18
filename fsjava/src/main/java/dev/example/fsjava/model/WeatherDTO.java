@@ -5,6 +5,13 @@ public class WeatherDTO {
     private String temperature;
     private String image;
 
+
+    public WeatherDTO(String status, String temperature, String image){
+        this.status = status;
+        this.temperature = temperature;
+        this.image = image;
+    }
+
     public void setStatus(String status) {
         this.status = status;
     }
