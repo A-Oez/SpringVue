@@ -27,6 +27,9 @@
       <GetWeather place="Neudenau" timeCacheKey="timeSunrise"></GetWeather>
     </div>
     <p>Imsak</p>
+    <img src="./assets/write_icon_237016.png" @click="isOpenWrite = true" style="margin-right: 10px;"/>
+    <img src="./assets/open-book.png" @click="isOpenRead = true"/>
+    <p>0/0</p>
   </div>
   
   <div class="content2">
@@ -37,6 +40,9 @@
       <GetWeather place="Neudenau" timeCacheKey="timeMorning"></GetWeather>
     </div>
     <p>Sabah</p>
+    <img src="./assets/write_icon_237016.png" @click="isOpenWrite = true" style="margin-right: 10px;"/>
+    <img src="./assets/open-book.png" @click="isOpenRead = true"/>    
+    <p>0/0</p>
   </div>
   
   <div class="content3"> 
@@ -47,6 +53,9 @@
       <GetWeather place="Neudenau" timeCacheKey="timeNoon"></GetWeather>
     </div>
     <p>Öglen</p>
+    <img src="./assets/write_icon_237016.png" @click="isOpenWrite = true" style="margin-right: 10px;"/>
+    <img src="./assets/open-book.png" @click="isOpenRead = true"/>
+    <p>0/0</p>
   </div>
   
   <div class="content4"> 
@@ -57,6 +66,9 @@
       <GetWeather place="Neudenau" timeCacheKey="timeAfternoon"></GetWeather>
     </div>
     <p>Ikindi</p>
+    <img src="./assets/write_icon_237016.png" @click="isOpenWrite = true" style="margin-right: 10px;"/>
+    <img src="./assets/open-book.png" @click="isOpenRead = true"/>
+    <p>0/0</p>
   </div>
   
   <div class="content5">
@@ -67,6 +79,9 @@
       <GetWeather place="Neudenau" timeCacheKey="timeEvening"></GetWeather>
     </div>
     <p>Aksam</p>
+    <img src="./assets/write_icon_237016.png" @click="isOpenWrite = true" style="margin-right: 10px;"/>
+    <img src="./assets/open-book.png" @click="isOpenRead = true"/>
+    <p>0/0</p>
   </div>
   
   <div class="content6">
@@ -77,17 +92,14 @@
       <GetWeather place="Neudenau" timeCacheKey="timeNight"></GetWeather>
     </div>
     <p>Yatsi</p>
+    <img src="./assets/write_icon_237016.png" @click="isOpenWrite = true" style="margin-right: 10px;"/>
+    <img src="./assets/open-book.png" @click="isOpenRead = true"/>
+    <p>0/0</p>
   </div>
   
-  <div class="control-center">
-    <div class="modal-menue">
-      <img src="./assets/write_icon_237016.png" @click="isOpen = true" style="margin-right: 10px;"/>
-      <img src="./assets/write_icon_237016.png" @click="isOpen = true"/>
-    </div>
-    <!--Zwei Modals, das erste um Einträge hinzuzufügen, das andere um Einträge auszugeben + einer check funktion, der check stand wird untern ausgegeben--> 
-    
+  <div class="modals">
     <!--MODAL WRITE-->
-    <Modal :open="isOpen" @close="isOpen = !isOpen">
+    <Modal :open="isOpenWrite" @close="isOpenWrite = !isOpenWrite">
       <div style = "text-align: left;">
         <a style="color: black;font-size: 18px">Goal:</a>
         <input form="text" style="margin-left: 10px;"/>
@@ -95,10 +107,9 @@
     </Modal>
 
     <!--MODAL READ-->
-    <Modal :open="isOpen" @close="isOpen = !isOpen">
+    <Modal :open="isOpenRead" @close="isOpenRead = !isOpenRead">
       <div style = "text-align: left;">
-        <a style="color: black;font-size: 18px">Goal:</a>
-        <input form="text" style="margin-left: 10px;"/>
+        
       </div>
     </Modal>
   </div>
@@ -129,13 +140,9 @@ export default {
     }, 900000) 
   },
   setup(){
-    const isOpen = ref(false)
-    return { isOpen }
-  },
-  methods:{
-    returnModalType(){
-      //IMAGE SRC ANSCHAUEN, DEMENTSPRECHEND TYPE ALS STRING AUSGEBEN UND ALS V-IF IN MODAL TYPE ANGEBEN
-    }
+    const isOpenWrite = ref(false)
+    const isOpenRead = ref(false)
+    return { isOpenRead, isOpenWrite }
   }
 }
 </script>
