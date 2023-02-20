@@ -1,4 +1,4 @@
-package dev.example.fsjava.DAL;
+package dev.example.fsjava.DAL.Scraping;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 

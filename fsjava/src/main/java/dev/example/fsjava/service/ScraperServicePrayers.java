@@ -1,9 +1,10 @@
 package dev.example.fsjava.service;
 
-import dev.example.fsjava.DAL.HTMLFactory;
-import dev.example.fsjava.DAL.HTMLType;
-import dev.example.fsjava.DAL.IHTMLDocument;
-import dev.example.fsjava.model.PrayingDTO;
+import com.google.gson.Gson;
+import dev.example.fsjava.DAL.Scraping.HTMLFactory;
+import dev.example.fsjava.DAL.Scraping.HTMLType;
+import dev.example.fsjava.DAL.Scraping.IHTMLDocument;
+import dev.example.fsjava.DTO.PrayingDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -30,11 +31,11 @@ public class ScraperServicePrayers {
     }
 
     public String extractData() throws IOException {
-        if(valueList.size() != 0 && getDate(valueList.get(0))){return JsonCreater.create(dto);}
+        if(valueList.size() != 0 && getDate(valueList.get(0))){return new Gson().toJson(dto);}
         Elements elements = (Elements) document.getData(url).get(0);
         for(Element ads : elements){valueList.add(ads.text());}
         setDTOAttributes();
-        return JsonCreater.create(dto);
+        return new Gson().toJson(dto);
     }
 
     private boolean getDate(String elements){

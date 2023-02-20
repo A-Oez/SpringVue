@@ -1,6 +1,6 @@
-package dev.example.fsjava.model;
+package dev.example.fsjava.DTO;
 
-public class DBModel {
+public class InfoCardDTO {
     private int ID;
     private String type;
     private String value;
@@ -8,13 +8,13 @@ public class DBModel {
     private boolean check;
 
 
-    public DBModel(String type, String value, boolean check) {
+    public InfoCardDTO(String type, String value, boolean check) {
         this.type = type;
         this.value = value;
         this.check = check;
     }
 
-    public DBModel(int ID, String type, String value, boolean check) {
+    public InfoCardDTO(int ID, String type, String value, boolean check) {
         this.ID = ID;
         this.type = type;
         this.value = value;

@@ -1,6 +1,6 @@
 package dev.example.fsjava;
 
-import dev.example.fsjava.DAL.HTMLType;
+import dev.example.fsjava.DAL.Scraping.HTMLType;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

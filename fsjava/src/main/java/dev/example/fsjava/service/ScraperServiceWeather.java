@@ -1,9 +1,10 @@
 package dev.example.fsjava.service;
 
-import dev.example.fsjava.DAL.HTMLFactory;
-import dev.example.fsjava.DAL.HTMLType;
-import dev.example.fsjava.DAL.IHTMLDocument;
-import dev.example.fsjava.model.WeatherDTO;
+import com.google.gson.Gson;
+import dev.example.fsjava.DAL.Scraping.HTMLFactory;
+import dev.example.fsjava.DAL.Scraping.HTMLType;
+import dev.example.fsjava.DAL.Scraping.IHTMLDocument;
+import dev.example.fsjava.DTO.WeatherDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,6 @@ public class ScraperServiceWeather {
         String image = list.get(1).attributes().get("src");
         String temperature = list.get(2).text();
 
-        return JsonCreater.create(new WeatherDTO(status,temperature,image));
+        return new Gson().toJson(new WeatherDTO(status,temperature,image));
     }
 }

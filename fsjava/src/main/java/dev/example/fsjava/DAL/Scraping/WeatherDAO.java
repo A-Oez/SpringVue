@@ -1,8 +1,7 @@
-package dev.example.fsjava.DAL;
+package dev.example.fsjava.DAL.Scraping;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class HTMLAccessWeather implements IHTMLDocument {
+public class WeatherDAO implements IHTMLDocument {
     @Override
     public List<Element> getData(String url) throws IOException {
         List<Element> values = new ArrayList<>();

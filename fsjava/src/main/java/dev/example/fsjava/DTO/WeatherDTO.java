@@ -1,4 +1,4 @@
-package dev.example.fsjava.model;
+package dev.example.fsjava.DTO;
 
 public class WeatherDTO {
     private String status;

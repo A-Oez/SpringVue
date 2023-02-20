@@ -1,6 +1,6 @@
 package dev.example.fsjava.controller;
 
-import dev.example.fsjava.DAL.HTMLType;
+import dev.example.fsjava.DAL.Scraping.HTMLType;
 import dev.example.fsjava.service.ScraperServicePrayers;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,6 @@
 package dev.example.fsjava.DAL;
 
-import dev.example.fsjava.model.DBModel;
+import dev.example.fsjava.DTO.InfoCardDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -10,15 +10,15 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class MyDatabaseAccess {
+public class InfoCardDAO {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<DBModel> queryData(){
+    public List<InfoCardDTO> queryData(){
         String query = "SELECT * FROM content";
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(query);
-        List<DBModel> result = new ArrayList<>();
+        List<InfoCardDTO> result = new ArrayList<>();
 
         for (Map<String, Object> row : rows) {
             int ID = (int) row.get("ID");
@@ -26,13 +26,13 @@ public class MyDatabaseAccess {
             String value = row.get("value").toString();
             Boolean check = (Boolean) row.get("checkT");
 
-            DBModel model = new DBModel(ID, type,value, check);
+            InfoCardDTO model = new InfoCardDTO(ID, type,value, check);
             result.add(model);
         }
         return result;
     }
 
-    public boolean addData(DBModel model){
+    public boolean addData(InfoCardDTO model){
         String query = "INSERT INTO content (type, value, checkT) VALUES (?, ?, ?)";
         try {
             jdbcTemplate.update(query, model.getType(), model.getValue(), model.isCheck());
@@ -43,7 +43,7 @@ public class MyDatabaseAccess {
         }
     }
 
-    public boolean updateData(DBModel model){
+    public boolean updateData(InfoCardDTO model){
         String query = "UPDATE content SET type=?, value=?, checkT=? WHERE id=?";
         try {
             jdbcTemplate.update(query, model.getType(), model.getValue(), model.isCheck(), model.getID());
@@ -53,5 +53,4 @@ public class MyDatabaseAccess {
             return false;
         }
     }
-
 }

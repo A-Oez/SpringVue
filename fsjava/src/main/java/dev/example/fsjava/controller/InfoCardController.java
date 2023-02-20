@@ -1,8 +1,8 @@
 package dev.example.fsjava.controller;
 
 import com.google.gson.Gson;
-import dev.example.fsjava.DAL.MyDatabaseAccess;
-import dev.example.fsjava.model.DBModel;
+import dev.example.fsjava.DAL.InfoCardDAO;
+import dev.example.fsjava.DTO.InfoCardDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,22 +11,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/database")
-public class DatabaseController {
+@RequestMapping("api/infocard")
+public class InfoCardController {
     @Autowired
-    private MyDatabaseAccess myDatabaseAccess;
+    private InfoCardDAO infoCardDAO;
 
-    @GetMapping("/data")
+    @GetMapping("/getData")
     public String getData() {
-        List<DBModel> list = myDatabaseAccess.queryData();
+        List<InfoCardDTO> list = infoCardDAO.queryData();
         return new Gson().toJson(list);
     }
 
     @PostMapping("/postData")
     public ResponseEntity<String> addData(@RequestBody String jsonData){
         try{
-            DBModel model = new Gson().fromJson(jsonData, DBModel.class);
-            if(myDatabaseAccess.addData(model) == false){return new ResponseEntity<>("Fehler beim Erstellen des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut" , HttpStatus.INTERNAL_SERVER_ERROR);}
+            InfoCardDTO model = new Gson().fromJson(jsonData, InfoCardDTO.class);
+            if(infoCardDAO.addData(model) == false){return new ResponseEntity<>("Fehler beim Erstellen des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut" , HttpStatus.INTERNAL_SERVER_ERROR);}
             return new ResponseEntity<>("Datensatz erfolgreich erstellt", HttpStatus.CREATED);
         }
         catch (Exception ex){
@@ -37,8 +37,8 @@ public class DatabaseController {
     @PostMapping("/updateData")
     public ResponseEntity<String> updateData(@RequestBody String jsonData){
         try{
-            DBModel model = new Gson().fromJson(jsonData, DBModel.class);
-            if(myDatabaseAccess.updateData(model) == false){return new ResponseEntity<>("Fehler beim updaten des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut" , HttpStatus.INTERNAL_SERVER_ERROR);}
+            InfoCardDTO model = new Gson().fromJson(jsonData, InfoCardDTO.class);
+            if(infoCardDAO.updateData(model) == false){return new ResponseEntity<>("Fehler beim updaten des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut" , HttpStatus.INTERNAL_SERVER_ERROR);}
             return new ResponseEntity<>("Datensatz erfolgreich geupdatet", HttpStatus.CREATED);
         }
         catch (Exception ex){
