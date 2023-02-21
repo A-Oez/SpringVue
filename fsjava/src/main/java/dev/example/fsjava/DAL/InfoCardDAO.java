@@ -21,7 +21,7 @@ public class InfoCardDAO {
         List<InfoCardDTO> result = new ArrayList<>();
 
         for (Map<String, Object> row : rows) {
-            int ID = (int) row.get("ID");
+            int ID = (int) row.get("id");
             String type = row.get("type").toString();
             String value = row.get("value").toString();
             Boolean check = (Boolean) row.get("checkT");

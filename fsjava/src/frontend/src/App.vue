@@ -109,19 +109,20 @@
     <!--MODAL READ-->
     <Modal :open="isOpenRead" @close="isOpenRead = !isOpenRead">
       <div style = "text-align: left;">
-        
+        <GetInfoCard card-type="TEST"/>
       </div>
     </Modal>
   </div>
 </template>
 
 <script>
-import GetPrayersTime from './components/GetPrayersTime.vue';
-import GetTimeHeader from './components/GetTimeHeader.vue';
-import GetWeather from './components/GetWeather.vue'
-import GetWeatherHeader from './components/GetWeatherHeader.vue';
-import CacheTime from './components/CacheTime.vue';
-import Modal from './components/Modal.vue';
+import GetPrayersTime from './components/Time/GetPrayersTime.vue';
+import GetTimeHeader from './components/Time/GetTimeHeader.vue';
+import GetWeather from './components/Weather/GetWeather.vue'
+import GetWeatherHeader from './components/Weather/GetWeatherHeader.vue';
+import CacheTime from './components/Time/CacheTime.vue';
+import Modal from './components/InfoCard/Modal.vue';
+import GetInfoCard from './components/InfoCard/GetInfoCard.vue';
 import {ref} from "vue";
 
 export default {
@@ -132,7 +133,8 @@ export default {
     GetTimeHeader,
     CacheTime,
     GetWeatherHeader,
-    Modal
+    Modal,
+    GetInfoCard
   },
   mounted(){
     setInterval(() => {
