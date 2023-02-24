@@ -1,150 +1,25 @@
 <template>
-  <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
   <CacheTime/>
-  <div class="headerLeftSection"> 
-    <div class = "showCity">
-      <a>Neudenau</a>
-    </div>
-    <div class = "showTime">
-      <GetTimeHeader/>
-    </div>
-    <div class = "showWeather">
-      <GetWeatherHeader place="Neudenau"></GetWeatherHeader>
-    </div> 
-  </div>
-  
-  <div class="headerRightSection"> 
-    <a id="headerText">
-      This is the Book about which there is no doubt, a guidance for those conscious of Allah – Baqarah Ayat 2
-    </a>
-  </div>
-  
-  <div class ="content1"> 
-    <div>
-      <GetPrayersTime timeCacheKey="timeSunrise"/>
-    </div> 
-    <div>
-      <GetWeather place="Neudenau" timeCacheKey="timeSunrise"></GetWeather>
-    </div>
-    <p>Imsak</p>
-    <img src="./assets/write_icon_237016.png" @click="isOpenWrite = true" style="margin-right: 10px;"/>
-    <img src="./assets/open-book.png" @click="isOpenRead = true"/>
-    <p>0/0</p>
-  </div>
-  
-  <div class="content2">
-    <div>
-      <GetPrayersTime timeCacheKey="timeMorning"/>
-    </div> 
-    <div>
-      <GetWeather place="Neudenau" timeCacheKey="timeMorning"></GetWeather>
-    </div>
-    <p>Sabah</p>
-    <img src="./assets/write_icon_237016.png" @click="isOpenWrite = true" style="margin-right: 10px;"/>
-    <img src="./assets/open-book.png" @click="isOpenRead = true"/>    
-    <p>0/0</p>
-  </div>
-  
-  <div class="content3"> 
-    <div>
-      <GetPrayersTime timeCacheKey="timeNoon"/>
-    </div> 
-    <div>
-      <GetWeather place="Neudenau" timeCacheKey="timeNoon"></GetWeather>
-    </div>
-    <p>Öglen</p>
-    <img src="./assets/write_icon_237016.png" @click="isOpenWrite = true" style="margin-right: 10px;"/>
-    <img src="./assets/open-book.png" @click="isOpenRead = true"/>
-    <p>0/0</p>
-  </div>
-  
-  <div class="content4"> 
-    <div>
-      <GetPrayersTime timeCacheKey="timeAfternoon"/>
-    </div> 
-    <div>
-      <GetWeather place="Neudenau" timeCacheKey="timeAfternoon"></GetWeather>
-    </div>
-    <p>Ikindi</p>
-    <img src="./assets/write_icon_237016.png" @click="isOpenWrite = true" style="margin-right: 10px;"/>
-    <img src="./assets/open-book.png" @click="isOpenRead = true"/>
-    <p>0/0</p>
-  </div>
-  
-  <div class="content5">
-    <div>
-      <GetPrayersTime timeCacheKey="timeEvening"/>
-    </div> 
-    <div>
-      <GetWeather place="Neudenau" timeCacheKey="timeEvening"></GetWeather>
-    </div>
-    <p>Aksam</p>
-    <img src="./assets/write_icon_237016.png" @click="isOpenWrite = true" style="margin-right: 10px;"/>
-    <img src="./assets/open-book.png" @click="isOpenRead = true"/>
-    <p>0/0</p>
-  </div>
-  
-  <div class="content6">
-    <div>
-      <GetPrayersTime timeCacheKey="timeNight"/>
-    </div> 
-    <div>
-      <GetWeather place="Neudenau" timeCacheKey="timeNight"></GetWeather>
-    </div>
-    <p>Yatsi</p>
-    <img src="./assets/write_icon_237016.png" @click="isOpenWrite = true" style="margin-right: 10px;"/>
-    <img src="./assets/open-book.png" @click="isOpenRead = true"/>
-    <p>0/0</p>
-  </div>
-  
-  <div class="modals">
-    <!--MODAL WRITE-->
-    <Modal :open="isOpenWrite" @close="isOpenWrite = !isOpenWrite">
-      <div style = "text-align: left;">
-        <a style="color: black;font-size: 18px">Goal:</a>
-        <input form="text" style="margin-left: 10px;"/>
-      </div>
-    </Modal>
-
-    <!--MODAL READ-->
-    <Modal :open="isOpenRead" @close="isOpenRead = !isOpenRead">
-      <div style = "text-align: left;">
-        <GetInfoCard card-type="TEST"/>
-      </div>
-    </Modal>
-  </div>
+  <Header/>
+  <Content/>
 </template>
 
 <script>
-import GetPrayersTime from './components/Time/GetPrayersTime.vue';
-import GetTimeHeader from './components/Time/GetTimeHeader.vue';
-import GetWeather from './components/Weather/GetWeather.vue'
-import GetWeatherHeader from './components/Weather/GetWeatherHeader.vue';
 import CacheTime from './components/Time/CacheTime.vue';
-import Modal from './components/InfoCard/Modal.vue';
-import GetInfoCard from './components/InfoCard/GetInfoCard.vue';
-import {ref} from "vue";
+import Header from './components/Pages/Header.vue';
+import Content from './components/Pages/Content.vue';
 
 export default {
   name: 'App',
   components: {
-    GetPrayersTime,
-    GetWeather,
-    GetTimeHeader,
     CacheTime,
-    GetWeatherHeader,
-    Modal,
-    GetInfoCard
+    Header,
+    Content
   },
   mounted(){
     setInterval(() => {
       location.reload;
     }, 900000) 
-  },
-  setup(){
-    const isOpenWrite = ref(false)
-    const isOpenRead = ref(false)
-    return { isOpenRead, isOpenWrite }
   }
 }
 </script>

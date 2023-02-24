@@ -7,26 +7,23 @@
     </select>
   </ul>
 
-  <button @click="getJSONTEST()">SAVE</button>
+  <button @click="checkValues()">SAVE</button>
 </template>
 
 <script>
 
 export default {
   name: 'GetInfoCard',
-  props: {
-    cardType: String
-  },
   data() {
     return {
       json: '',
     }
   },
   mounted() {      
-    this.getWeather();
+    this.getCards();
   },
   methods:{
-    async getWeather(){
+    async getCards(){
         fetch(`/api/infocard/getData`)
         .then(response => response.text())
         .then(data => {       
@@ -34,7 +31,7 @@ export default {
           this.json = jsonData;
         }); 
     },
-    getJSONTEST(){
+    checkValues(){
       let counter = 0;
       for (let i = 0; i <= this.json.length - 1; i++) {
         const select = document.getElementById(this.json[i].ID)
