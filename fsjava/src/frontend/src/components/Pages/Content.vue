@@ -136,7 +136,6 @@ export default {
         this.isOpenWrite = true;
       }
       this.modalContent = type; 
-      console.log(this.modalContent)
     }
   }
 }

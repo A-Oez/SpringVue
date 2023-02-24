@@ -1,10 +1,12 @@
 <template>
   <ul v-for="task in json">
-    {{ task.value }}| Check: {{ task.check }}
-    <select size="2" v-bind:id="task.ID">
-      <option>true</option>
-      <option>false</option>
-    </select>
+    <div>
+      <a style="font-size: 16px;">{{ task.value }}</a>
+      <select size="2" v-bind:id="task.ID">
+        <option :value="true" :selected="task.check == true" style="color: green;">true</option>
+        <option :value="false" :selected="task.check == false" style="color: red;">false</option>
+      </select>
+    </div>
   </ul>
 
   <button @click="checkValues()">SAVE</button>
@@ -71,5 +73,7 @@ ul{
   color: black;
 }
 
-
+select{
+  margin-left: 1%;
+}
 </style>

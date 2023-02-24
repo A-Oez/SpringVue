@@ -18,7 +18,7 @@ export default {
   },
   mounted(){
     setInterval(() => {
-      location.reload;
+      location.replace(location.href);
     }, 900000) 
   }
 }
