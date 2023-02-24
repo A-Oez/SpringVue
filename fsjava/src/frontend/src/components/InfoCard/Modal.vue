@@ -5,8 +5,9 @@
                 <div class="vue-modal-inner" v-show="open">
                     <div class="vue-modal-content">
                         <slot></slot>
-                        <p></p>
-                        <button type="button" @click="close">Close</button>
+                        <p>
+                            <button type="button" @click="closeModal">Close</button>
+                        </p>
                     </div>
                 </div>
             </transition>
@@ -22,12 +23,10 @@ export default{
             required: true
         }
     },
-    setup(_, { emit }){
-        const close = () => {
-            emit('close')
+    methods: {
+        closeModal() {
+            this.$emit('close');
         }
-
-        return { close }
     }
 }
 </script>
@@ -78,7 +77,7 @@ export default{
 }
 
 .drop-in-enter-active, .drop-in-leave-active{
-    transition: all 0.3s ease-out;
+    transition: all 10s ease-out;
 }
 
 .drop-in-enter-form, .drop-in-leave-to{

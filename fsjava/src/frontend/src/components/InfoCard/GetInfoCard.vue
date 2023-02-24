@@ -14,13 +14,25 @@
 
 export default {
   name: 'GetInfoCard',
+  props: {
+    cardType: String
+  },
   data() {
     return {
       json: '',
+      updatedProp: false,
     }
   },
-  mounted() {      
-    this.getCards();
+  mounted() { 
+    if(this.updatedProp == false){
+      this.getCards();  
+    }
+  },
+  watch: {
+    cardType: function (newVal) {
+      this.getCards();
+      this.updatedProp = true;
+    }
   },
   methods:{
     async getCards(){
@@ -28,7 +40,9 @@ export default {
         .then(response => response.text())
         .then(data => {       
           const jsonData = JSON.parse(data);
-          this.json = jsonData;
+          console.log(this.cardType)
+          const filtered = jsonData.filter(x => x.type == this.cardType)
+          this.json = filtered;
         }); 
     },
     checkValues(){

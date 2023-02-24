@@ -7,8 +7,8 @@
         <GetWeather place="Neudenau" timeCacheKey="timeSunrise"/>
         </div>
         <p>Imsak</p>
-        <img :src="writeImage" @click="isOpenWrite = true" style="margin-right: 10px;"/>
-        <img :src="readImage" @click="isOpenRead = true"/>
+        <img :src="writeImage" @click="setModal('Imsak','write')" style="margin-right: 10px;"/>
+        <img :src="readImage" @click="setModal('Imsak','read')" style="margin-right: 10px;"/>
         <p>0/0</p>
     </div>
     
@@ -20,8 +20,8 @@
         <GetWeather place="Neudenau" timeCacheKey="timeMorning"/>
         </div>
         <p>Sabah</p>
-        <img :src="writeImage" @click="isOpenWrite = true" style="margin-right: 10px;"/>
-        <img :src="readImage" @click="isOpenRead = true"/>
+        <img :src="writeImage" @click="setModal('Sabah','write')" style="margin-right: 10px;"/>
+        <img :src="readImage" @click="setModal('Sabah','read')" style="margin-right: 10px;"/>
         <p>0/0</p>
     </div>
     
@@ -33,8 +33,8 @@
         <GetWeather place="Neudenau" timeCacheKey="timeNoon"/>
         </div>
         <p>Öglen</p>
-        <img :src="writeImage" @click="isOpenWrite = true" style="margin-right: 10px;"/>
-        <img :src="readImage" @click="isOpenRead = true"/>
+        <img :src="writeImage" @click="setModal('Öglen','write')" style="margin-right: 10px;"/>
+        <img :src="readImage" @click="setModal('Öglen','read')" style="margin-right: 10px;"/>
         <p>0/0</p>
     </div>
     
@@ -46,8 +46,8 @@
         <GetWeather place="Neudenau" timeCacheKey="timeAfternoon"/>
         </div>
         <p>Ikindi</p>
-        <img :src="writeImage" @click="isOpenWrite = true" style="margin-right: 10px;"/>
-        <img :src="readImage" @click="isOpenRead = true"/>
+        <img :src="writeImage" @click="setModal('Ikindi','write')" style="margin-right: 10px;"/>
+        <img :src="readImage" @click="setModal('Ikindi','read')" style="margin-right: 10px;"/>
         <p>0/0</p>
     </div>
     
@@ -59,8 +59,8 @@
         <GetWeather place="Neudenau" timeCacheKey="timeEvening"/>
         </div>
         <p>Aksam</p>
-        <img :src="writeImage" @click="isOpenWrite = true" style="margin-right: 10px;"/>
-        <img :src="readImage" @click="isOpenRead = true"/>
+        <img :src="writeImage" @click="setModal('Aksam','write')" style="margin-right: 10px;"/>
+        <img :src="readImage" @click="setModal('Aksam','read')" style="margin-right: 10px;"/>
         <p>0/0</p>
     </div>
     
@@ -72,14 +72,14 @@
         <GetWeather place="Neudenau" timeCacheKey="timeNight"/>
         </div>
         <p>Yatsi</p>
-        <img :src="writeImage" @click="isOpenWrite = true" style="margin-right: 10px;"/>
-        <img :src="readImage" @click="isOpenRead = true"/>
+        <img :src="writeImage" @click="setModal('Yatsi','write')" style="margin-right: 10px;"/>
+        <img :src="readImage" @click="setModal('Yatsi','read')" style="margin-right: 10px;"/>
         <p>0/0</p>
     </div>
     
     <div class="modals">
         <!--MODAL WRITE-->
-        <Modal :open="isOpenWrite" @close="isOpenWrite = !isOpenWrite">
+        <Modal v-if="modalContent != ''" :open="isOpenWrite" @close="isOpenWrite = !isOpenWrite">
         <div style = "text-align: left;">
             <a style="color: black;font-size: 18px">Goal:</a>
             <input form="text" style="margin-left: 10px;"/>
@@ -87,9 +87,9 @@
         </Modal>
 
         <!--MODAL READ-->
-        <Modal :open="isOpenRead" @close="isOpenRead = !isOpenRead">
+        <Modal v-if="modalContent != ''" :open="isOpenRead" @close="isOpenRead = !isOpenRead">
         <div style = "text-align: left;">
-            <GetInfoCard/>
+            <GetInfoCard :cardType="modalContent"/>
         </div>
         </Modal>
     </div>
@@ -103,7 +103,6 @@ import Modal from '../InfoCard/Modal.vue';
 import GetInfoCard from '../InfoCard/GetInfoCard.vue';
 import readImage from "@/assets/open-book.png";
 import writeImage from "@/assets/write_icon_237016.png";
-
 import {ref} from "vue";
 
 
@@ -120,13 +119,25 @@ export default {
     return {
       readImage,
       writeImage,
+      modalContent: ""
     };
   },
   setup(){
     const isOpenWrite = ref(false)
     const isOpenRead = ref(false)
-    const type = ref('')
-    return { isOpenRead, isOpenWrite, type }
+    return { isOpenRead, isOpenWrite}
+  },
+  methods:{
+    setModal(type, modal){
+      if(modal == "read"){
+        this.isOpenRead = true;
+      }
+      else{
+        this.isOpenWrite = true;
+      }
+      this.modalContent = type; 
+      console.log(this.modalContent)
+    }
   }
 }
 </script>
