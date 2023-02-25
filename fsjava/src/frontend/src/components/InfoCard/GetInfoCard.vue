@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 
 export default {
   name: 'GetInfoCard',
@@ -69,15 +70,28 @@ export default {
         const select = document.getElementById(arr[i].ID)
 
         if(select.value != arr[i].check.toString()){
-          this.postData(arr[i].ID, select.value)
+          this.postData(arr[i].ID, select.value, arr[i].value)
         }
         else{counter++}
       }
 
       if(counter == arr.length){window.alert("no data to update!")}
     },
-    async postData(ID, check){
-      console.log("UNGLEICH")
+    postData(ID, check, content){
+      const infoCard = { ID: ID, value: content, check: check};   
+      const jsonString = JSON.stringify(infoCard);
+      console.log(jsonString)
+
+      axios.post('/api/infocard/postData', {
+        jsonString
+      })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+      location.replace(location.href);
     },
     previousPage() {
       this.page--;

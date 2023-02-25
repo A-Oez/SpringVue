@@ -26,7 +26,6 @@ export default{
     methods: {
         closeModal() {
             this.$emit('close');
-            location.replace(location.href);
         }
     }
 }
