@@ -81,8 +81,7 @@
         <!--MODAL WRITE-->
         <Modal v-if="modalContent != ''" :open="isOpenWrite" @close="isOpenWrite = !isOpenWrite">
         <div style = "text-align: left;">
-            <a style="color: black;font-size: 18px">Goal:</a>
-            <input form="text" style="margin-left: 10px;"/>
+            <PostInfoCard :cardType="modalContent"/>
         </div>
         </Modal>
 
@@ -101,6 +100,7 @@ import GetWeather from '../Weather/GetWeather.vue'
 import CacheTime from '../Time/CacheTime.vue';
 import Modal from '../InfoCard/Modal.vue';
 import GetInfoCard from '../InfoCard/GetInfoCard.vue';
+import PostInfoCard from '../InfoCard/PostInfoCard.vue';
 import readImage from "@/assets/open-book.png";
 import writeImage from "@/assets/write_icon_237016.png";
 import {ref} from "vue";
@@ -113,7 +113,8 @@ export default {
     GetWeather,
     CacheTime,
     Modal,
-    GetInfoCard
+    GetInfoCard,
+    PostInfoCard
   },
   data() {
     return {

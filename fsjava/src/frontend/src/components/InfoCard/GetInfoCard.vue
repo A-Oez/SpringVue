@@ -4,8 +4,8 @@
       <div>
         <a style="font-size: 16px;">{{ task.value }}</a>
         <select size="2" v-bind:id="task.ID">
-          <option :value="true" :selected="task.check == true" style="color: green;">true</option>
-          <option :value="false" :selected="task.check == false" style="color: red;">false</option>
+          <option :value="true" :selected="task.check == true" style="color: green;">succeeded</option>
+          <option :value="false" :selected="task.check == false" style="color: red;">failed</option>
         </select>
       </div>
     </ul>
@@ -87,19 +87,18 @@ export default {
         }
       })
       .then(response => {
-        console.log(response.data);
+        location.replace(location.href);
       })
       .catch(error => {
         console.log(error);
       });
-      location.replace(location.href);
     },
     previousPage() {
       this.page--;
     },
     nextPage() {
       this.page++;
-    },
+    }
   }
 }
 </script>
