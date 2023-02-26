@@ -16,7 +16,7 @@ public class InfoCardDAO {
     private JdbcTemplate jdbcTemplate;
 
     public List<InfoCardDTO> queryData(){
-        String query = "SELECT * FROM content";
+        String query = "SELECT * FROM content WHERE content.type IS NOT NULL AND content.value IS NOT NULL;";
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(query);
         List<InfoCardDTO> result = new ArrayList<>();
 

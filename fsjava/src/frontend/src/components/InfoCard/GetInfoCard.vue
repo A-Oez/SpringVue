@@ -59,7 +59,6 @@ export default {
         .then(response => response.text())
         .then(data => {       
           const jsonData = JSON.parse(data);
-          console.log(this.cardType)
           const filtered = jsonData.filter(x => x.type == this.cardType)
           this.json = filtered;
         }); 
@@ -78,12 +77,14 @@ export default {
       if(counter == arr.length){window.alert("no data to update!")}
     },
     postData(ID, check, content){
-      const infoCard = { ID: ID, value: content, check: check};   
+      const infoCard = { ID: ID, type: this.cardType, value: content, check: check};   
       const jsonString = JSON.stringify(infoCard);
       console.log(jsonString)
 
-      axios.post('/api/infocard/postData', {
-        jsonString
+      axios.post('/api/infocard/updateData', jsonString, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
       })
       .then(response => {
         console.log(response.data);
