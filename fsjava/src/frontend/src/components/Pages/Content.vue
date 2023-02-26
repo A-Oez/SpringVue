@@ -9,7 +9,7 @@
         <p>Imsak</p>
         <img :src="writeImage" @click="setModal('Imsak','write')" style="margin-right: 10px;"/>
         <img :src="readImage" @click="setModal('Imsak','read')" style="margin-right: 10px;"/>
-        <p>0/0</p>
+        <InfoCardCounter cardType="Imsak"/>
     </div>
     
     <div class="content2">
@@ -22,7 +22,7 @@
         <p>Sabah</p>
         <img :src="writeImage" @click="setModal('Sabah','write')" style="margin-right: 10px;"/>
         <img :src="readImage" @click="setModal('Sabah','read')" style="margin-right: 10px;"/>
-        <p>0/0</p>
+        <InfoCardCounter cardType="Sabah"/>
     </div>
     
     <div class="content3"> 
@@ -35,7 +35,7 @@
         <p>Öglen</p>
         <img :src="writeImage" @click="setModal('Öglen','write')" style="margin-right: 10px;"/>
         <img :src="readImage" @click="setModal('Öglen','read')" style="margin-right: 10px;"/>
-        <p>0/0</p>
+        <InfoCardCounter cardType="Öglen"/>
     </div>
     
     <div class="content4"> 
@@ -48,7 +48,7 @@
         <p>Ikindi</p>
         <img :src="writeImage" @click="setModal('Ikindi','write')" style="margin-right: 10px;"/>
         <img :src="readImage" @click="setModal('Ikindi','read')" style="margin-right: 10px;"/>
-        <p>0/0</p>
+        <InfoCardCounter cardType="Ikindi"/>
     </div>
     
     <div class="content5">
@@ -61,7 +61,7 @@
         <p>Aksam</p>
         <img :src="writeImage" @click="setModal('Aksam','write')" style="margin-right: 10px;"/>
         <img :src="readImage" @click="setModal('Aksam','read')" style="margin-right: 10px;"/>
-        <p>0/0</p>
+        <InfoCardCounter cardType="Aksam"/>
     </div>
     
     <div class="content6">
@@ -74,7 +74,7 @@
         <p>Yatsi</p>
         <img :src="writeImage" @click="setModal('Yatsi','write')" style="margin-right: 10px;"/>
         <img :src="readImage" @click="setModal('Yatsi','read')" style="margin-right: 10px;"/>
-        <p>0/0</p>
+        <InfoCardCounter cardType="Yatsi"/>
     </div>
     
     <div class="modals">
@@ -103,6 +103,7 @@ import GetInfoCard from '../InfoCard/GetInfoCard.vue';
 import PostInfoCard from '../InfoCard/PostInfoCard.vue';
 import readImage from "@/assets/open-book.png";
 import writeImage from "@/assets/write_icon_237016.png";
+import InfoCardCounter from '../InfoCard/InfoCardCounter.vue';
 import {ref} from "vue";
 
 
@@ -114,7 +115,8 @@ export default {
     CacheTime,
     Modal,
     GetInfoCard,
-    PostInfoCard
+    PostInfoCard,
+    InfoCardCounter
   },
   data() {
     return {

@@ -18,14 +18,12 @@ import axios from 'axios';
         };
     },
     watch: {
-        cardType: function (newVal) {
-        }
+        cardType: function (newVal) {}
     },
     methods:{
         postToDoMessage(body){
             const infoCard = {type: this.cardType, value: body, check: false};   
             const jsonString = JSON.stringify(infoCard);
-            console.log(jsonString)
 
             axios.post('/api/infocard/postData', jsonString, {
                 headers: {

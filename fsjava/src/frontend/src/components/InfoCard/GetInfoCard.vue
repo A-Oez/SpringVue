@@ -79,7 +79,6 @@ export default {
     postData(ID, check, content){
       const infoCard = { ID: ID, type: this.cardType, value: content, check: check};   
       const jsonString = JSON.stringify(infoCard);
-      console.log(jsonString)
 
       axios.post('/api/infocard/updateData', jsonString, {
         headers: {
