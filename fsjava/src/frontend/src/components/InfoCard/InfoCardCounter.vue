@@ -23,11 +23,10 @@
             .then(response => response.text())
             .then(data => {       
                 const jsonData = JSON.parse(data)
-                console.log(jsonData)
                 const filtered = jsonData.filter(x => x.type == this.cardType)
                 this.maxCards = filtered.length
 
-                const succeded = jsonData.filter(x => x.check == true)
+                const succeded = filtered.filter(x => x.check == true)
                 this.succeededCards = succeded.length
              }); 
          }
