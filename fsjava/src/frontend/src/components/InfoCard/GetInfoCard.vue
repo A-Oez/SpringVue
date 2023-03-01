@@ -3,10 +3,13 @@
     <ul v-for="task in itemsToShow">
       <div>
         <a style="font-size: 16px;">{{ task.value }}</a>
-        <select size="2" v-bind:id="task.ID">
-          <option :value="true" :selected="task.check == true" style="color: green;">succeeded</option>
-          <option :value="false" :selected="task.check == false" style="color: red;">failed</option>
-        </select>
+        <div>
+          <select size="2" v-bind:id="task.ID">
+            <option :value="true" :selected="task.check == true" style="color: green;">succeeded</option>
+            <option :value="false" :selected="task.check == false" style="color: red;">failed</option>
+          </select>
+          <img class="deletionImage" @click="deleteCard(task.ID)" src="https://img.icons8.com/small/32/null/delete-forever.png"/>
+        </div>
       </div>
     </ul>
     <div>
@@ -54,7 +57,7 @@ export default {
     },
   },
   methods:{
-    async getCards(){
+    getCards(){
         fetch(`/api/infocard/getData`)
         .then(response => response.text())
         .then(data => {       
@@ -92,6 +95,22 @@ export default {
         console.log(error);
       });
     },
+    deleteCard(cardID){
+      const infoCard = { ID: cardID};   
+      const jsonString = JSON.stringify(infoCard);
+
+      axios.post('/api/infocard/deleteData', jsonString, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        location.replace(location.href);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    },
     previousPage() {
       this.page--;
     },
@@ -108,9 +127,14 @@ ul{
 }
 
 select{
-  width: 100%;
+  width: 80%;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
+
+.deletionImage:hover{
+  background-color: #d1c9ca;
+}
+
 </style>
