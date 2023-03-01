@@ -24,9 +24,15 @@ export default {
         .then(response => response.text())
         .then(data => {
           const jsonData = JSON.parse(data);
-          this.image = jsonData.image;
+          this.getWeatherImage(jsonData.status.replace(/\s+/g, ''))
           this.temperature = jsonData.temperature;
         });   
+  },
+  methods:{
+    getWeatherImage(status){
+        const data = require('./configWeather.json');
+        this.image = data[status];
+    }
   }
 }
 </script>
