@@ -3,13 +3,10 @@ package dev.example.fsjava.DTO;
 public class WeatherDTO {
     private String status;
     private String temperature;
-    private String image;
 
-
-    public WeatherDTO(String status, String temperature, String image){
+    public WeatherDTO(String status, String temperature){
         this.status = status;
         this.temperature = temperature;
-        this.image = image;
     }
 
     public void setStatus(String status) {
@@ -18,9 +15,5 @@ public class WeatherDTO {
 
     public void setTemperature(String temperature) {
         this.temperature = temperature;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 }

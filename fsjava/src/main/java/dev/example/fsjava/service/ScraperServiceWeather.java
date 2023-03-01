@@ -25,9 +25,8 @@ public class ScraperServiceWeather {
         List<Element> list = document.getData(url);
 
         String status = list.get(0).text();
-        String image = list.get(1).attributes().get("src");
-        String temperature = list.get(2).text();
+        String temperature = list.get(1).text();
 
-        return new Gson().toJson(new WeatherDTO(status,temperature,image));
+        return new Gson().toJson(new WeatherDTO(status,temperature));
     }
 }

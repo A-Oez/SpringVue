@@ -16,7 +16,6 @@ public class WeatherDAO implements IHTMLDocument {
         Document document = Jsoup.connect(url).get();
 
         values.add(document.getElementById("wob_dc"));
-        values.add(document.getElementById("wob_tci"));
         values.add(document.getElementById("wob_tm"));
 
         return values;
