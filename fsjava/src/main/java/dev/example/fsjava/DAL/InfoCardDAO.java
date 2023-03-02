@@ -53,4 +53,16 @@ public class InfoCardDAO {
             return false;
         }
     }
+
+    public boolean deleteData(String ID){
+        String query = "DELETE FROM content WHERE content.id = ?";
+        try {
+            jdbcTemplate.update(query, ID);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
 }

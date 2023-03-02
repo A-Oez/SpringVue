@@ -96,12 +96,9 @@ export default {
       });
     },
     deleteCard(cardID){
-      const infoCard = { ID: cardID};   
-      const jsonString = JSON.stringify(infoCard);
-
-      axios.post('/api/infocard/deleteData', jsonString, {
+      axios.post('/api/infocard/deleteData', cardID, {
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'text/plain'
         }
       })
       .then(response => {

@@ -45,4 +45,15 @@ public class InfoCardController {
             return new ResponseEntity<>("Fehler beim updaten des Datensatzes: " + ex.getMessage() , HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @PostMapping("/deleteData")
+    public ResponseEntity<String> deleteData(@RequestBody String ID){
+        try{
+            if(infoCardDAO.deleteData(ID) == false){return new ResponseEntity<>("Fehler beim updaten des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut" , HttpStatus.INTERNAL_SERVER_ERROR);}
+            return new ResponseEntity<>("Datensatz erfolgreich geupdatet", HttpStatus.CREATED);
+        }
+        catch (Exception ex){
+            return new ResponseEntity<>("Fehler beim updaten des Datensatzes: " + ex.getMessage() , HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
