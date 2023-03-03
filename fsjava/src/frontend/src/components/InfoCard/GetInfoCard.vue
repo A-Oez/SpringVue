@@ -5,8 +5,8 @@
         <a style="font-size: 16px;">{{ task.value }}</a>
         <div>
           <select size="2" v-bind:id="task.ID">
-            <option :value="true" :selected="task.check == true" style="color: green;">succeeded</option>
-            <option :value="false" :selected="task.check == false" style="color: red;">failed</option>
+            <option :value="true" :selected="task.check == true" style="color: green;" @click="this.hasSelectedOption = true">succeeded</option>
+            <option :value="false" :selected="task.check == false" style="color: red;" @click="this.hasSelectedOption = true">failed</option>
           </select>
           <img class="deletionImage" @click="deleteCard(task.ID)" src="https://img.icons8.com/small/32/null/delete-forever.png"/>
         </div>
@@ -14,9 +14,10 @@
     </ul>
     <div>
       <button @click="previousPage" :disabled="page === 0">Previous</button>
-      <button @click="nextPage" :disabled="page === maxPage">Next</button>
+      <button @click="nextButtonMethods(itemsToShow)" :disabled="page === maxPage">Next</button>
     </div>
     <button @click="checkValues(itemsToShow)">SAVE</button>
+    <button v-if="this.hasSelectedOption == true" @click="resetChanges(itemsToShow)">RESET CHANGES</button>
   </div>
 </template>
 
@@ -33,6 +34,7 @@ export default {
       json: [],
       updatedProp: false,
       itemsPerPage: 5,
+      hasSelectedOption: false,
       page: 0,
     }
   },
@@ -45,6 +47,7 @@ export default {
     cardType: function (newVal) {
       this.getCards();
       this.updatedProp = true;
+      this.hasSelectedOption = false;
     }
   },
   computed: {
@@ -107,6 +110,33 @@ export default {
       .catch(error => {
         console.log(error);
       });
+    },
+    nextButtonMethods(arr){
+      if(this.checkSelectedOptions(arr) == true){
+        this.nextPage();
+      }     
+    },
+    checkSelectedOptions(arr){
+      for (let i = 0; i <= arr.length - 1; i++) {
+        const select = document.getElementById(arr[i].ID)
+        if(select.value.toString() != arr[i].check.toString()){
+          this.hasSelectedOption = true
+        }
+      }
+
+      if(this.hasSelectedOption == true){
+        window.alert("save the changes before paging the content")
+        return false;
+      }
+
+      return true;
+    },
+    resetChanges(arr){
+      for (let i = 0; i <= arr.length - 1; i++) {
+        const select = document.getElementById(arr[i].ID)
+        select.value = arr[i].check
+      }
+      this.hasSelectedOption = false;
     },
     previousPage() {
       this.page--;
