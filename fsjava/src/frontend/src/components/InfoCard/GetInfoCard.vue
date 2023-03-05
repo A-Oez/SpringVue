@@ -1,4 +1,5 @@
 <template>
+  <a v-if="this.json.length == 0"> no items!</a>
   <div>
     <ul v-for="task in itemsToShow">
       <div>
