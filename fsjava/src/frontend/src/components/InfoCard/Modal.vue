@@ -6,7 +6,7 @@
                     <div class="vue-modal-content">
                         <slot></slot>
                         <p>
-                            <button type="button" @click="closeModal">Close</button>
+                            <button class="btn btn-dark" @click="closeModal">Close</button>
                         </p>
                     </div>
                 </div>
@@ -61,7 +61,7 @@ export default{
 
 .vue-modal-content{
     position: relative;
-    background-color: #fff;
+    background-color: #273036;
     border: 1px solid rgba(0,0,0,0.3);
     background-clip: padding-box;
     border-radius: 0.3rem;

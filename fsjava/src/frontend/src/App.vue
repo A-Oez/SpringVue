@@ -8,6 +8,8 @@
 import CacheTime from './components/Time/CacheTime.vue';
 import Header from './components/Pages/Header.vue';
 import Content from './components/Pages/Content.vue';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
 
 export default {
   name: 'App',
@@ -33,6 +35,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: white;
+  background-color: #273036;
   margin-top: 60px;
 
   display: grid;

@@ -1,7 +1,7 @@
 <template>
-    <h3 style="color: black;">{{ this.cardType }} | To-do</h3>
+    <h3>{{ this.cardType }} | To-do</h3>
     <textarea maxlength="50" v-model="message"></textarea>
-    <button v-if="message.length != 0" @click="postToDoMessage(message)">SAVE</button>
+    <button v-if="message.length != 0" class="btn btn-success" @click="postToDoMessage(message)" title="save">⇄</button>
 </template>
   
 <script>  

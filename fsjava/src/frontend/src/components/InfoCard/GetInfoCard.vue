@@ -2,22 +2,22 @@
   <div>
     <ul v-for="task in itemsToShow">
       <div>
-        <a style="font-size: 16px;">{{ task.value }}</a>
-        <div>
+        <a id="contentValue">{{ task.value }}</a>
+        <div class="selections">
           <select size="2" v-bind:id="task.ID">
-            <option :value="true" :selected="task.check == true" style="color: green;" @click="this.hasSelectedOption = true">succeeded</option>
-            <option :value="false" :selected="task.check == false" style="color: red;" @click="this.hasSelectedOption = true">failed</option>
+            <option :value="true"  :selected="task.check == true"  @click="this.hasSelectedOption = true">succeeded</option>
+            <option :value="false" :selected="task.check == false" @click="this.hasSelectedOption = true">failed</option>
           </select>
-          <img class="deletionImage" @click="deleteCard(task.ID)" src="https://img.icons8.com/small/32/null/delete-forever.png"/>
+          <img class="deletionImage" @click="deleteCard(task.ID)" src="https://img.icons8.com/small/32/null/delete-forever.png" title="delete"/>
         </div>
       </div>
     </ul>
-    <div>
-      <button @click="previousPage" :disabled="page === 0">Previous</button>
-      <button @click="nextButtonMethods(itemsToShow)" :disabled="page === maxPage">Next</button>
+    <div class="navigation">
+      <button class="btn btn-dark" @click="controlButtonMethods(itemsToShow,'previous')" :disabled="page === 0"> ⇐ </button>
+      <button class="btn btn-dark" @click="controlButtonMethods(itemsToShow,'next')" :disabled="page === maxPage"> ⇒ </button>
     </div>
-    <button @click="checkValues(itemsToShow)">SAVE</button>
-    <button v-if="this.hasSelectedOption == true" @click="resetChanges(itemsToShow)">RESET CHANGES</button>
+    <button class="btn btn-success" @click="checkValues(itemsToShow)" title="save">⇄</button>
+    <button v-if="this.hasSelectedOption == true" class="btn btn-danger" @click="resetChanges(itemsToShow)" title="reset">↶</button>
   </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
     return {
       json: [],
       updatedProp: false,
-      itemsPerPage: 5,
+      itemsPerPage: 3,
       hasSelectedOption: false,
       page: 0,
     }
@@ -111,9 +111,16 @@ export default {
         console.log(error);
       });
     },
-    nextButtonMethods(arr){
+    controlButtonMethods(arr,type){
       if(this.checkSelectedOptions(arr) == true){
-        this.nextPage();
+        
+        if(type == "next"){
+          this.nextPage();
+        }
+        else{
+          this.previousPage()
+        }
+        
       }     
     },
     checkSelectedOptions(arr){
@@ -149,19 +156,50 @@ export default {
 </script>
 
 <style>
-ul{
-  color: black;
+@import 'https://fonts.googleapis.com/css?family=Playfair+Display:400,700i,900i';
+
+#contentValue{
+  font-size: 19.5px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 select{
-  width: 80%;
+  width: 60%;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  background-color: #273036;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
+select option{
+  color: #d1c9ca;
+}
+
+select:focus {
+  outline: none;
+}
+
+select option:checked {
+  background-color: #d1c9ca;
+  color: #000;
 }
 
 .deletionImage:hover{
   background-color: #d1c9ca;
 }
+
+.deletionImage{
+  padding: 3%;
+  vertical-align: middle;
+  margin-top: -36px;
+}
+
 
 </style>
