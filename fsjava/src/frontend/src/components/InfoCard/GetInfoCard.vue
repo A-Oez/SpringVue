@@ -76,15 +76,15 @@ export default {
         const select = document.getElementById(arr[i].ID)
 
         if(select.value != arr[i].check.toString()){
-          this.postData(arr[i].ID, select.value, arr[i].value)
+          this.updateCard(arr[i].ID, select.value, arr[i].value)
         }
         else{counter++}
       }
 
       if(counter == arr.length){window.alert("no data to update!")}
     },
-    postData(ID, check, content){
-      const infoCard = { ID: ID, type: this.cardType, value: content, check: check};   
+    updateCard(cardID, cardCheck, cardContent){
+      const infoCard = { ID: cardID, type: this.cardType, value: cardContent, check: cardCheck};   
       const jsonString = JSON.stringify(infoCard);
 
       axios.post('/api/infocard/updateData', jsonString, {
@@ -201,6 +201,4 @@ select option:checked {
   vertical-align: middle;
   margin-top: -36px;
 }
-
-
 </style>

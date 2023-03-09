@@ -12,7 +12,8 @@ export default {
   data() {
     return {
       image: '',
-      temperature: ''
+      temperature: '',
+      weatherStatus:''
     }
   },
   mounted() {      
@@ -28,6 +29,7 @@ export default {
         .then(response => response.text())
         .then(data => {
           const jsonData = JSON.parse(data);
+          this.weatherStatus = jsonData.status.replace(/\s+/g, '')
           this.getWeatherImage(jsonData.status.replace(/\s+/g, ''))
           this.temperature = jsonData.temperature;
         }); 

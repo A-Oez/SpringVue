@@ -1,9 +1,9 @@
 <template>
    <div class="headerLeftSection"> 
-    <div class = "showCity">
+    <div class = "showCityHeader">
       <a>Neudenau</a>
     </div>
-    <div class = "showTime">
+    <div class = "showTimeHeader">
       <GetTimeHeader/>
     </div>
     <div class = "showWeather">
@@ -12,7 +12,7 @@
   </div>
   
   <div class="headerRightSection"> 
-    <a id="headerText">
+    <a class="headerText">
       This is the Book about which there is no doubt, a guidance for those conscious of Allah – Baqarah Ayat 2
     </a>
    </div>
@@ -30,3 +30,19 @@ export default {
   }
 }
 </script>
+<style>
+.showCityHeader, .showTimeHeader{
+  position: absolute;
+  margin-left: 5%;
+  font-size: 20px;
+}
+
+.showTimeHeader{
+  margin-top: 35px;
+}
+
+.headerText{
+  background-color:#d1c9ca;
+  color: #413637;
+}
+</style>
