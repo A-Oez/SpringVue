@@ -153,7 +153,7 @@ export default {
 .content5 { grid-area: 2 / 6 / 4 / 7;transition: background-color 0.5s ease;}
 .content6 { grid-area: 2 / 7 / 4 / 8;transition: background-color 0.5s ease;}
 
-.headerRightSection:hover, .content1:hover, .content2:hover, .content3:hover, .content4:hover, .content5:hover, .content6:hover{
+#headerText:hover, .content1:hover, .content2:hover, .content3:hover, .content4:hover, .content5:hover, .content6:hover{
   background-color: wheat;
   cursor: pointer;
 }
