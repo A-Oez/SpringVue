@@ -1,0 +1,574 @@
+{
+		"Surah": [
+			{
+				"Name": "Al-Faatiha",
+				"Number": "1",
+				"NumberOfAyahs": "7"
+			},
+			{
+				"Name": "Al-Baqara",
+				"Number": "2",
+				"NumberOfAyahs": "286"
+			},
+			{
+				"Name": "Aal-i-Imraan",
+				"Number": "3",
+				"NumberOfAyahs": "200"
+			},
+			{
+				"Name": "An-Nisaa",
+				"Number": "4",
+				"NumberOfAyahs": "176"
+			},
+			{
+				"Name": "Al-Maaida",
+				"Number": "5",
+				"NumberOfAyahs": "120"
+			},
+			{
+				"Name": "Al-An'aam",
+				"Number": "6",
+				"NumberOfAyahs": "165"
+			},
+			{
+				"Name": "Al-A'raaf",
+				"Number": "7",
+				"NumberOfAyahs": "206"
+			},
+			{
+				"Name": "Al-Anfaal",
+				"Number": "8",
+				"NumberOfAyahs": "75"
+			},
+			{
+				"Name": "At-Tawba",
+				"Number": "9",
+				"NumberOfAyahs": "129"
+			},
+			{
+				"Name": "Yunus",
+				"Number": "10",
+				"NumberOfAyahs": "109"
+			},
+			{
+				"Name": "Hud",
+				"Number": "11",
+				"NumberOfAyahs": "123"
+			},
+			{
+				"Name": "Yusuf",
+				"Number": "12",
+				"NumberOfAyahs": "111"
+			},
+			{
+				"Name": "Ar-Ra'd",
+				"Number": "13",
+				"NumberOfAyahs": "43"
+			},
+			{
+				"Name": "Ibrahim",
+				"Number": "14",
+				"NumberOfAyahs": "52"
+			},
+			{
+				"Name": "Al-Hijr",
+				"Number": "15",
+				"NumberOfAyahs": "99"
+			},
+			{
+				"Name": "An-Nahl",
+				"Number": "16",
+				"NumberOfAyahs": "128"
+			},
+			{
+				"Name": "Al-Israa",
+				"Number": "17",
+				"NumberOfAyahs": "111"
+			},
+			{
+				"Name": "Al-Kahf",
+				"Number": "18",
+				"NumberOfAyahs": "110"
+			},
+			{
+				"Name": "Maryam",
+				"Number": "19",
+				"NumberOfAyahs": "98"
+			},
+			{
+				"Name": "Taa-Haa",
+				"Number": "20",
+				"NumberOfAyahs": "135"
+			},
+			{
+				"Name": "Al-Anbiyaa",
+				"Number": "21",
+				"NumberOfAyahs": "112"
+			},
+			{
+				"Name": "Al-Hajj",
+				"Number": "22",
+				"NumberOfAyahs": "78"
+			},
+			{
+				"Name": "Al-Muminoon",
+				"Number": "23",
+				"NumberOfAyahs": "118"
+			},
+			{
+				"Name": "An-Noor",
+				"Number": "24",
+				"NumberOfAyahs": "64"
+			},
+			{
+				"Name": "Al-Furqaan",
+				"Number": "25",
+				"NumberOfAyahs": "77"
+			},
+			{
+				"Name": "Ash-Shu'araa",
+				"Number": "26",
+				"NumberOfAyahs": "227"
+			},
+			{
+				"Name": "An-Naml",
+				"Number": "27",
+				"NumberOfAyahs": "93"
+			},
+			{
+				"Name": "Al-Qasas",
+				"Number": "28",
+				"NumberOfAyahs": "88"
+			},
+			{
+				"Name": "Al-Ankaboot",
+				"Number": "29",
+				"NumberOfAyahs": "69"
+			},
+			{
+				"Name": "Ar-Room",
+				"Number": "30",
+				"NumberOfAyahs": "60"
+			},
+			{
+				"Name": "Luqman",
+				"Number": "31",
+				"NumberOfAyahs": "34"
+			},
+			{
+				"Name": "As-Sajda",
+				"Number": "32",
+				"NumberOfAyahs": "30"
+			},
+			{
+				"Name": "Al-Ahzaab",
+				"Number": "33",
+				"NumberOfAyahs": "73"
+			},
+			{
+				"Name": "Saba",
+				"Number": "34",
+				"NumberOfAyahs": "54"
+			},
+			{
+				"Name": "Faatir",
+				"Number": "35",
+				"NumberOfAyahs": "45"
+			},
+			{
+				"Name": "Yaseen",
+				"Number": "36",
+				"NumberOfAyahs": "83"
+			},
+			{
+				"Name": "As-Saaffaat",
+				"Number": "37",
+				"NumberOfAyahs": "182"
+			},
+			{
+				"Name": "Saad",
+				"Number": "38",
+				"NumberOfAyahs": "88"
+			},
+			{
+				"Name": "Az-Zumar",
+				"Number": "39",
+				"NumberOfAyahs": "75"
+			},
+			{
+				"Name": "Ghafir",
+				"Number": "40",
+				"NumberOfAyahs": "85"
+			},
+			{
+				"Name": "Fussilat",
+				"Number": "41",
+				"NumberOfAyahs": "54"
+			},
+			{
+				"Name": "Ash-Shura",
+				"Number": "42",
+				"NumberOfAyahs": "53"
+			},
+			{
+				"Name": "Az-Zukhruf",
+				"Number": "43",
+				"NumberOfAyahs": "89"
+			},
+			{
+				"Name": "Ad-Dukhaan",
+				"Number": "44",
+				"NumberOfAyahs": "59"
+			},
+			{
+				"Name": "Al-Jaathiya",
+				"Number": "45",
+				"NumberOfAyahs": "37"
+			},
+			{
+				"Name": "Al-Ahqaf",
+				"Number": "46",
+				"NumberOfAyahs": "35"
+			},
+			{
+				"Name": "Muhammad",
+				"Number": "47",
+				"NumberOfAyahs": "38"
+			},
+			{
+				"Name": "Al-Fath",
+				"Number": "48",
+				"NumberOfAyahs": "29"
+			},
+			{
+				"Name": "Al-Hujuraat",
+				"Number": "49",
+				"NumberOfAyahs": "18"
+			},
+			{
+				"Name": "Qaaf",
+				"Number": "50",
+				"NumberOfAyahs": "45"
+			},
+			{
+				"Name": "Adh-Dhaariyat",
+				"Number": "51",
+				"NumberOfAyahs": "60"
+			},
+			{
+				"Name": "At-Tur",
+				"Number": "52",
+				"NumberOfAyahs": "49"
+			},
+			{
+				"Name": "An-Najm",
+				"Number": "53",
+				"NumberOfAyahs": "62"
+			},
+			{
+				"Name": "Al-Qamar",
+				"Number": "54",
+				"NumberOfAyahs": "55"
+			},
+			{
+				"Name": "Ar-Rahmaan",
+				"Number": "55",
+				"NumberOfAyahs": "78"
+			},
+			{
+				"Name": "Al-Waaqia",
+				"Number": "56",
+				"NumberOfAyahs": "96"
+			},
+			{
+				"Name": "Al-Hadid",
+				"Number": "57",
+				"NumberOfAyahs": "29"
+			},
+			{
+				"Name": "Al-Mujaadila",
+				"Number": "58",
+				"NumberOfAyahs": "22"
+			},
+			{
+				"Name": "Al-Hashr",
+				"Number": "59",
+				"NumberOfAyahs": "24"
+			},
+			{
+				"Name": "Al-Mumtahana",
+				"Number": "60",
+				"NumberOfAyahs": "13"
+			},
+			{
+				"Name": "As-Saff",
+				"Number": "61",
+				"NumberOfAyahs": "14"
+			},
+			{
+				"Name": "Al-Jumu'a",
+				"Number": "62",
+				"NumberOfAyahs": "11"
+			},
+			{
+				"Name": "Al-Munaafiqoon",
+				"Number": "63",
+				"NumberOfAyahs": "11"
+			},
+			{
+				"Name": "At-Taghaabun",
+				"Number": "64",
+				"NumberOfAyahs": "18"
+			},
+			{
+				"Name": "At-Talaaq",
+				"Number": "65",
+				"NumberOfAyahs": "12"
+			},
+			{
+				"Name": "At-Tahrim",
+				"Number": "66",
+				"NumberOfAyahs": "12"
+			},
+			{
+				"Name": "Al-Mulk",
+				"Number": "67",
+				"NumberOfAyahs": "30"
+			},
+			{
+				"Name": "Al-Qalam",
+				"Number": "68",
+				"NumberOfAyahs": "52"
+			},
+			{
+				"Name": "Al-Haaqqa",
+				"Number": "69",
+				"NumberOfAyahs": "52"
+			},
+			{
+				"Name": "Al-Ma'aarij",
+				"Number": "70",
+				"NumberOfAyahs": "44"
+			},
+			{
+				"Name": "Nooh",
+				"Number": "71",
+				"NumberOfAyahs": "28"
+			},
+			{
+				"Name": "Al-Jinn",
+				"Number": "72",
+				"NumberOfAyahs": "28"
+			},
+			{
+				"Name": "Al-Muzzammil",
+				"Number": "73",
+				"NumberOfAyahs": "20"
+			},
+			{
+				"Name": "Al-Muddaththir",
+				"Number": "74",
+				"NumberOfAyahs": "56"
+			},
+			{
+				"Name": "Al-Qiyaama",
+				"Number": "75",
+				"NumberOfAyahs": "40"
+			},
+			{
+				"Name": "Al-Insaan",
+				"Number": "76",
+				"NumberOfAyahs": "31"
+			},
+			{
+				"Name": "Al-Mursalaat",
+				"Number": "77",
+				"NumberOfAyahs": "50"
+			},
+			{
+				"Name": "An-Naba",
+				"Number": "78",
+				"NumberOfAyahs": "40"
+			},
+			{
+				"Name": "An-Naazi'aat",
+				"Number": "79",
+				"NumberOfAyahs": "46"
+			},
+			{
+				"Name": "Abasa",
+				"Number": "80",
+				"NumberOfAyahs": "42"
+			},
+			{
+				"Name": "At-Takwir",
+				"Number": "81",
+				"NumberOfAyahs": "29"
+			},
+			{
+				"Name": "Al-Infitaar",
+				"Number": "82",
+				"NumberOfAyahs": "19"
+			},
+			{
+				"Name": "Al-Mutaffifin",
+				"Number": "83",
+				"NumberOfAyahs": "36"
+			},
+			{
+				"Name": "Al-Inshiqaaq",
+				"Number": "84",
+				"NumberOfAyahs": "25"
+			},
+			{
+				"Name": "Al-Burooj",
+				"Number": "85",
+				"NumberOfAyahs": "22"
+			},
+			{
+				"Name": "At-Taariq",
+				"Number": "86",
+				"NumberOfAyahs": "17"
+			},
+			{
+				"Name": "Al-A'laa",
+				"Number": "87",
+				"NumberOfAyahs": "19"
+			},
+			{
+				"Name": "Al-Ghaashiya",
+				"Number": "88",
+				"NumberOfAyahs": "26"
+			},
+			{
+				"Name": "Al-Fajr",
+				"Number": "89",
+				"NumberOfAyahs": "30"
+			},
+			{
+				"Name": "Al-Balad",
+				"Number": "90",
+				"NumberOfAyahs": "20"
+			},
+			{
+				"Name": "Ash-Shams",
+				"Number": "91",
+				"NumberOfAyahs": "15"
+			},
+			{
+				"Name": "Al-Lail",
+				"Number": "92",
+				"NumberOfAyahs": "21"
+			},
+			{
+				"Name": "Ad-Dhuhaa",
+				"Number": "93",
+				"NumberOfAyahs": "11"
+			},
+			{
+				"Name": "Ash-Sharh",
+				"Number": "94",
+				"NumberOfAyahs": "8"
+			},
+			{
+				"Name": "At-Tin",
+				"Number": "95",
+				"NumberOfAyahs": "8"
+			},
+			{
+				"Name": "Al-Alaq",
+				"Number": "96",
+				"NumberOfAyahs": "19"
+			},
+			{
+				"Name": "Al-Qadr",
+				"Number": "97",
+				"NumberOfAyahs": "5"
+			},
+			{
+				"Name": "Al-Bayyina",
+				"Number": "98",
+				"NumberOfAyahs": "8"
+			},
+			{
+				"Name": "Az-Zalzala",
+				"Number": "99",
+				"NumberOfAyahs": "8"
+			},
+			{
+				"Name": "Al-Aadiyaat",
+				"Number": "100",
+				"NumberOfAyahs": "11"
+			},
+			{
+				"Name": "Al-Qaari'a",
+				"Number": "101",
+				"NumberOfAyahs": "11"
+			},
+			{
+				"Name": "At-Takaathur",
+				"Number": "102",
+				"NumberOfAyahs": "8"
+			},
+			{
+				"Name": "Al-Asr",
+				"Number": "103",
+				"NumberOfAyahs": "3"
+			},
+			{
+				"Name": "Al-Humaza",
+				"Number": "104",
+				"NumberOfAyahs": "9"
+			},
+			{
+				"Name": "Al-Fil",
+				"Number": "105",
+				"NumberOfAyahs": "5"
+			},
+			{
+				"Name": "Quraish",
+				"Number": "106",
+				"NumberOfAyahs": "4"
+			},
+			{
+				"Name": "Al-Maa'un",
+				"Number": "107",
+				"NumberOfAyahs": "7"
+			},
+			{
+				"Name": "Al-Kawthar",
+				"Number": "108",
+				"NumberOfAyahs": "3"
+			},
+			{
+				"Name": "Al-Kaafiroon",
+				"Number": "109",
+				"NumberOfAyahs": "6"
+			},
+			{
+				"Name": "An-Nasr",
+				"Number": "110",
+				"NumberOfAyahs": "3"
+			},
+			{
+				"Name": "Al-Masad",
+				"Number": "111",
+				"NumberOfAyahs": "5"
+			},
+			{
+				"Name": "Al-Ikhlaas",
+				"Number": "112",
+				"NumberOfAyahs": "4"
+			},
+			{
+				"Name": "Al-Falaq",
+				"Number": "113",
+				"NumberOfAyahs": "5"
+			},
+			{
+				"Name": "An-Naas",
+				"Number": "114",
+				"NumberOfAyahs": "6"
+			}
+		]
+}

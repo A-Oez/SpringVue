@@ -35,8 +35,8 @@ export default {
         }); 
     },
     getWeatherImage(status){
-        const data = require('./configWeather.json');
-        this.image = data[status];
+        const weatherImages = require('./configWeather.json');
+        this.image = weatherImages[status];
     }
   }
 }
