@@ -13,12 +13,10 @@
   
   <div class="headerRightSection"> 
     <a id="headerText" @click="this.isOpen = true">
-      ayat of the day:
+      select ayat:
     </a>
   </div>
   <Modal :open="this.isOpen" @close="this.isOpen = !isOpen">
-      <!-- <p style="text-align: left;">GOD - there is no deity save Him, the Ever-Living, the Self-Subsistent Fount of All Being. Neither slumber overtakes Him, nor sleep. His is all that is in the heavens and all that is on earth. Who is there that could intercede with Him, unless it be by His leave? He knows all that lies open before men and all that is hidden from them, whereas they cannot attain to aught of His knowledge save that which He wills [them to attain]. His eternal power overspreads the heavens and the earth, and their upholding wearies Him not. And he alone is truly exalted, tremendous</p>
-      <p>Al-Baqara ~ 2:255</p> -->
       <AyatPage/>
   </Modal>
 </template>
