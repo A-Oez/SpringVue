@@ -5,7 +5,7 @@
     </div>
     <select v-if="ayatSelected == false" id="surahSelector" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" @change="getSelectedSurah()">
       <option>-</option>  
-      <option v-for="surah in itemsToShowSurah" v-bind:id="surah.number">{{ surah.number }} ~ {{ surah.name }}</option>
+      <option v-for="surah in itemsToShowSurah" v-bind:id="surah.number">{{ surah.number }} ~ {{ surah.name }} ({{ surah.nameTranslated }})</option>
     </select>
 
     <div v-if="surahSelected == true" class="surahContent">
@@ -55,7 +55,7 @@ export default {
     getSurahs(){
       const configJson = require('./SurahMapping.json');
       for(let i = 0; i < 114; i++){
-        const surahObject = { name: configJson.Surah[i].Name, number: configJson.Surah[i].Number, numberAyahs: configJson.Surah[i].NumberOfAyahs};   
+        const surahObject = { name: configJson.Surah[i].Name, number: configJson.Surah[i].Number, numberAyahs: configJson.Surah[i].NumberOfAyahs, nameTranslated: configJson.Surah[i].NameTranslated};   
         this.arrSurah.push(surahObject)
       }
     },

@@ -2,573 +2,688 @@
 		"Surah": [
 			{
 				"Name": "Al-Faatiha",
+				"NameTranslated": "The Opening",
 				"Number": "1",
 				"NumberOfAyahs": "7"
 			},
 			{
 				"Name": "Al-Baqara",
+				"NameTranslated": "The Cow",
 				"Number": "2",
 				"NumberOfAyahs": "286"
 			},
 			{
 				"Name": "Aal-i-Imraan",
+				"NameTranslated": "The Family of Imraan",
 				"Number": "3",
 				"NumberOfAyahs": "200"
 			},
 			{
 				"Name": "An-Nisaa",
+				"NameTranslated": "The Women",
 				"Number": "4",
 				"NumberOfAyahs": "176"
 			},
 			{
 				"Name": "Al-Maaida",
+				"NameTranslated": "The Table",
 				"Number": "5",
 				"NumberOfAyahs": "120"
 			},
 			{
 				"Name": "Al-An'aam",
+				"NameTranslated": "The Cattle",
 				"Number": "6",
 				"NumberOfAyahs": "165"
 			},
 			{
 				"Name": "Al-A'raaf",
+				"NameTranslated": "The Heights",
 				"Number": "7",
 				"NumberOfAyahs": "206"
 			},
 			{
 				"Name": "Al-Anfaal",
+				"NameTranslated": "The Spoils of War",
 				"Number": "8",
 				"NumberOfAyahs": "75"
 			},
 			{
 				"Name": "At-Tawba",
+				"NameTranslated": "The Repentance",
 				"Number": "9",
 				"NumberOfAyahs": "129"
 			},
 			{
 				"Name": "Yunus",
+				"NameTranslated": "Jonas",
 				"Number": "10",
 				"NumberOfAyahs": "109"
 			},
 			{
 				"Name": "Hud",
+				"NameTranslated": "Hud",
 				"Number": "11",
 				"NumberOfAyahs": "123"
 			},
 			{
 				"Name": "Yusuf",
+				"NameTranslated": "Joseph",
 				"Number": "12",
 				"NumberOfAyahs": "111"
 			},
 			{
 				"Name": "Ar-Ra'd",
+				"NameTranslated": "The Thunder",
 				"Number": "13",
 				"NumberOfAyahs": "43"
 			},
 			{
 				"Name": "Ibrahim",
+				"NameTranslated": "Abraham",
 				"Number": "14",
 				"NumberOfAyahs": "52"
 			},
 			{
 				"Name": "Al-Hijr",
+				"NameTranslated": "The Rock",
 				"Number": "15",
 				"NumberOfAyahs": "99"
 			},
 			{
 				"Name": "An-Nahl",
+				"NameTranslated": "The Bee",
 				"Number": "16",
 				"NumberOfAyahs": "128"
 			},
 			{
 				"Name": "Al-Israa",
+				"NameTranslated": "The Night Journey",
 				"Number": "17",
 				"NumberOfAyahs": "111"
 			},
 			{
 				"Name": "Al-Kahf",
+				"NameTranslated": "The Cave",
 				"Number": "18",
 				"NumberOfAyahs": "110"
 			},
 			{
 				"Name": "Maryam",
+				"NameTranslated": "Mary",
 				"Number": "19",
 				"NumberOfAyahs": "98"
 			},
 			{
 				"Name": "Taa-Haa",
+				"NameTranslated": "Taa-Haa",
 				"Number": "20",
 				"NumberOfAyahs": "135"
 			},
 			{
 				"Name": "Al-Anbiyaa",
+				"NameTranslated": "The Prophets",
 				"Number": "21",
 				"NumberOfAyahs": "112"
 			},
 			{
 				"Name": "Al-Hajj",
+				"NameTranslated": "The Pilgrimage",
 				"Number": "22",
 				"NumberOfAyahs": "78"
 			},
 			{
 				"Name": "Al-Muminoon",
+				"NameTranslated": "The Believers",
 				"Number": "23",
 				"NumberOfAyahs": "118"
 			},
 			{
 				"Name": "An-Noor",
+				"NameTranslated": "The Light",
 				"Number": "24",
 				"NumberOfAyahs": "64"
 			},
 			{
 				"Name": "Al-Furqaan",
+				"NameTranslated": "The Criterion",
 				"Number": "25",
 				"NumberOfAyahs": "77"
 			},
 			{
 				"Name": "Ash-Shu'araa",
+				"NameTranslated": "The Poets",
 				"Number": "26",
 				"NumberOfAyahs": "227"
 			},
 			{
 				"Name": "An-Naml",
+				"NameTranslated": "The Ant",
 				"Number": "27",
 				"NumberOfAyahs": "93"
 			},
 			{
 				"Name": "Al-Qasas",
+				"NameTranslated": "The Stories",
 				"Number": "28",
 				"NumberOfAyahs": "88"
 			},
 			{
 				"Name": "Al-Ankaboot",
+				"NameTranslated": "The Spider",
 				"Number": "29",
 				"NumberOfAyahs": "69"
 			},
 			{
 				"Name": "Ar-Room",
+				"NameTranslated": "The Romans",
 				"Number": "30",
 				"NumberOfAyahs": "60"
 			},
 			{
 				"Name": "Luqman",
+				"NameTranslated": "Luqman",
 				"Number": "31",
 				"NumberOfAyahs": "34"
 			},
 			{
 				"Name": "As-Sajda",
+				"NameTranslated": "The Prostration",
 				"Number": "32",
 				"NumberOfAyahs": "30"
 			},
 			{
 				"Name": "Al-Ahzaab",
+				"NameTranslated": "The Clans",
 				"Number": "33",
 				"NumberOfAyahs": "73"
 			},
 			{
 				"Name": "Saba",
+				"NameTranslated": "Sheba",
 				"Number": "34",
 				"NumberOfAyahs": "54"
 			},
 			{
 				"Name": "Faatir",
+				"NameTranslated": "The Originator",
 				"Number": "35",
 				"NumberOfAyahs": "45"
 			},
 			{
 				"Name": "Yaseen",
+				"NameTranslated": "Yaseen",
 				"Number": "36",
 				"NumberOfAyahs": "83"
 			},
 			{
 				"Name": "As-Saaffaat",
+				"NameTranslated": "Those drawn up in Ranks",
 				"Number": "37",
 				"NumberOfAyahs": "182"
 			},
 			{
 				"Name": "Saad",
+				"NameTranslated": "The letter Saad",
 				"Number": "38",
 				"NumberOfAyahs": "88"
 			},
 			{
 				"Name": "Az-Zumar",
+				"NameTranslated": "The Groups",
 				"Number": "39",
 				"NumberOfAyahs": "75"
 			},
 			{
 				"Name": "Ghafir",
+				"NameTranslated": "The Forgiver",
 				"Number": "40",
 				"NumberOfAyahs": "85"
 			},
 			{
 				"Name": "Fussilat",
+				"NameTranslated": "Explained in detail",
 				"Number": "41",
 				"NumberOfAyahs": "54"
 			},
 			{
 				"Name": "Ash-Shura",
+				"NameTranslated": "Consultation",
 				"Number": "42",
 				"NumberOfAyahs": "53"
 			},
 			{
 				"Name": "Az-Zukhruf",
+				"NameTranslated": "Ornaments of gold",
 				"Number": "43",
 				"NumberOfAyahs": "89"
 			},
 			{
 				"Name": "Ad-Dukhaan",
+				"NameTranslated": "The Smoke",
 				"Number": "44",
 				"NumberOfAyahs": "59"
 			},
 			{
 				"Name": "Al-Jaathiya",
+				"NameTranslated": "Crouching",
 				"Number": "45",
 				"NumberOfAyahs": "37"
 			},
 			{
 				"Name": "Al-Ahqaf",
+				"NameTranslated": "The Dunes",
 				"Number": "46",
 				"NumberOfAyahs": "35"
 			},
 			{
 				"Name": "Muhammad",
+				"NameTranslated": "Muhammad",
 				"Number": "47",
 				"NumberOfAyahs": "38"
 			},
 			{
 				"Name": "Al-Fath",
+				"NameTranslated": "The Victory",
 				"Number": "48",
 				"NumberOfAyahs": "29"
 			},
 			{
 				"Name": "Al-Hujuraat",
+				"NameTranslated": "The Inner Apartments",
 				"Number": "49",
 				"NumberOfAyahs": "18"
 			},
 			{
 				"Name": "Qaaf",
+				"NameTranslated": "The letter Qaaf",
 				"Number": "50",
 				"NumberOfAyahs": "45"
 			},
 			{
 				"Name": "Adh-Dhaariyat",
+				"NameTranslated": "The Winnowing Winds",
 				"Number": "51",
 				"NumberOfAyahs": "60"
 			},
 			{
 				"Name": "At-Tur",
+				"NameTranslated": "The Mount",
 				"Number": "52",
 				"NumberOfAyahs": "49"
 			},
 			{
 				"Name": "An-Najm",
+				"NameTranslated": "The Star",
 				"Number": "53",
 				"NumberOfAyahs": "62"
 			},
 			{
 				"Name": "Al-Qamar",
+				"NameTranslated": "The Moon",
 				"Number": "54",
 				"NumberOfAyahs": "55"
 			},
 			{
 				"Name": "Ar-Rahmaan",
+				"NameTranslated": "The Beneficent",
 				"Number": "55",
 				"NumberOfAyahs": "78"
 			},
 			{
 				"Name": "Al-Waaqia",
+				"NameTranslated": "The Inevitable",
 				"Number": "56",
 				"NumberOfAyahs": "96"
 			},
 			{
 				"Name": "Al-Hadid",
+				"NameTranslated": "The Iron",
 				"Number": "57",
 				"NumberOfAyahs": "29"
 			},
 			{
 				"Name": "Al-Mujaadila",
+				"NameTranslated": "The Pleading Woman",
 				"Number": "58",
 				"NumberOfAyahs": "22"
 			},
 			{
 				"Name": "Al-Hashr",
+				"NameTranslated": "The Exile",
 				"Number": "59",
 				"NumberOfAyahs": "24"
 			},
 			{
 				"Name": "Al-Mumtahana",
+				"NameTranslated": "She that is to be examined",
 				"Number": "60",
 				"NumberOfAyahs": "13"
 			},
 			{
 				"Name": "As-Saff",
+				"NameTranslated": "The Ranks",
 				"Number": "61",
 				"NumberOfAyahs": "14"
 			},
 			{
 				"Name": "Al-Jumu'a",
+				"NameTranslated": "Friday",
 				"Number": "62",
 				"NumberOfAyahs": "11"
 			},
 			{
 				"Name": "Al-Munaafiqoon",
+				"NameTranslated": "The Hypocrites",
 				"Number": "63",
 				"NumberOfAyahs": "11"
 			},
 			{
 				"Name": "At-Taghaabun",
+				"NameTranslated": "Mutual Disillusion",
 				"Number": "64",
 				"NumberOfAyahs": "18"
 			},
 			{
 				"Name": "At-Talaaq",
+				"NameTranslated": "Divorce",
 				"Number": "65",
 				"NumberOfAyahs": "12"
 			},
 			{
 				"Name": "At-Tahrim",
+				"NameTranslated": "The Prohibition",
 				"Number": "66",
 				"NumberOfAyahs": "12"
 			},
 			{
 				"Name": "Al-Mulk",
+				"NameTranslated": "The Sovereignty",
 				"Number": "67",
 				"NumberOfAyahs": "30"
 			},
 			{
 				"Name": "Al-Qalam",
+				"NameTranslated": "The Pen",
 				"Number": "68",
 				"NumberOfAyahs": "52"
 			},
 			{
 				"Name": "Al-Haaqqa",
+				"NameTranslated": "The Reality",
 				"Number": "69",
 				"NumberOfAyahs": "52"
 			},
 			{
 				"Name": "Al-Ma'aarij",
+				"NameTranslated": "The Ascending Stairways",
 				"Number": "70",
 				"NumberOfAyahs": "44"
 			},
 			{
 				"Name": "Nooh",
+				"NameTranslated": "Noah",
 				"Number": "71",
 				"NumberOfAyahs": "28"
 			},
 			{
 				"Name": "Al-Jinn",
+				"NameTranslated": "The Jinn",
 				"Number": "72",
 				"NumberOfAyahs": "28"
 			},
 			{
 				"Name": "Al-Muzzammil",
+				"NameTranslated": "The Enshrouded One",
 				"Number": "73",
 				"NumberOfAyahs": "20"
 			},
 			{
 				"Name": "Al-Muddaththir",
+				"NameTranslated": "The Cloaked One",
 				"Number": "74",
 				"NumberOfAyahs": "56"
 			},
 			{
 				"Name": "Al-Qiyaama",
+				"NameTranslated": "The Resurrection",
 				"Number": "75",
 				"NumberOfAyahs": "40"
 			},
 			{
 				"Name": "Al-Insaan",
+				"NameTranslated": "Man",
 				"Number": "76",
 				"NumberOfAyahs": "31"
 			},
 			{
 				"Name": "Al-Mursalaat",
+				"NameTranslated": "The Emissaries",
 				"Number": "77",
 				"NumberOfAyahs": "50"
 			},
 			{
 				"Name": "An-Naba",
+				"NameTranslated": "The Announcement",
 				"Number": "78",
 				"NumberOfAyahs": "40"
 			},
 			{
 				"Name": "An-Naazi'aat",
+				"NameTranslated": "Those who drag forth",
 				"Number": "79",
 				"NumberOfAyahs": "46"
 			},
 			{
 				"Name": "Abasa",
+				"NameTranslated": "He frowned",
 				"Number": "80",
 				"NumberOfAyahs": "42"
 			},
 			{
 				"Name": "At-Takwir",
+				"NameTranslated": "The Overthrowing",
 				"Number": "81",
 				"NumberOfAyahs": "29"
 			},
 			{
 				"Name": "Al-Infitaar",
+				"NameTranslated": "The Cleaving",
 				"Number": "82",
 				"NumberOfAyahs": "19"
 			},
 			{
 				"Name": "Al-Mutaffifin",
+				"NameTranslated": "Defrauding",
 				"Number": "83",
 				"NumberOfAyahs": "36"
 			},
 			{
 				"Name": "Al-Inshiqaaq",
+				"NameTranslated": "The Splitting Open",
 				"Number": "84",
 				"NumberOfAyahs": "25"
 			},
 			{
 				"Name": "Al-Burooj",
+				"NameTranslated": "The Constellations",
 				"Number": "85",
 				"NumberOfAyahs": "22"
 			},
 			{
 				"Name": "At-Taariq",
+				"NameTranslated": "The Morning Star",
 				"Number": "86",
 				"NumberOfAyahs": "17"
 			},
 			{
 				"Name": "Al-A'laa",
+				"NameTranslated": "The Most High",
 				"Number": "87",
 				"NumberOfAyahs": "19"
 			},
 			{
 				"Name": "Al-Ghaashiya",
+				"NameTranslated": "The Overwhelming",
 				"Number": "88",
 				"NumberOfAyahs": "26"
 			},
 			{
 				"Name": "Al-Fajr",
+				"NameTranslated": "The Dawn",
 				"Number": "89",
 				"NumberOfAyahs": "30"
 			},
 			{
 				"Name": "Al-Balad",
+				"NameTranslated": "The City",
 				"Number": "90",
 				"NumberOfAyahs": "20"
 			},
 			{
 				"Name": "Ash-Shams",
+				"NameTranslated": "The Sun",
 				"Number": "91",
 				"NumberOfAyahs": "15"
 			},
 			{
 				"Name": "Al-Lail",
+				"NameTranslated": "The Night",
 				"Number": "92",
 				"NumberOfAyahs": "21"
 			},
 			{
 				"Name": "Ad-Dhuhaa",
+				"NameTranslated": "The Morning Hours",
 				"Number": "93",
 				"NumberOfAyahs": "11"
 			},
 			{
 				"Name": "Ash-Sharh",
+				"NameTranslated": "The Consolation",
 				"Number": "94",
 				"NumberOfAyahs": "8"
 			},
 			{
 				"Name": "At-Tin",
+				"NameTranslated": "The Fig",
 				"Number": "95",
 				"NumberOfAyahs": "8"
 			},
 			{
 				"Name": "Al-Alaq",
+				"NameTranslated": "The Clot",
 				"Number": "96",
 				"NumberOfAyahs": "19"
 			},
 			{
 				"Name": "Al-Qadr",
+				"NameTranslated": "The Power, Fate",
 				"Number": "97",
 				"NumberOfAyahs": "5"
 			},
 			{
 				"Name": "Al-Bayyina",
+				"NameTranslated": "The Evidence",
 				"Number": "98",
 				"NumberOfAyahs": "8"
 			},
 			{
 				"Name": "Az-Zalzala",
+				"NameTranslated": "The Earthquake",
 				"Number": "99",
 				"NumberOfAyahs": "8"
 			},
 			{
 				"Name": "Al-Aadiyaat",
+				"NameTranslated": "The Chargers",
 				"Number": "100",
 				"NumberOfAyahs": "11"
 			},
 			{
 				"Name": "Al-Qaari'a",
+				"NameTranslated": "The Calamity",
 				"Number": "101",
 				"NumberOfAyahs": "11"
 			},
 			{
 				"Name": "At-Takaathur",
+				"NameTranslated": "Competition",
 				"Number": "102",
 				"NumberOfAyahs": "8"
 			},
 			{
 				"Name": "Al-Asr",
+				"NameTranslated": "The Declining Day, Epoch",
 				"Number": "103",
 				"NumberOfAyahs": "3"
 			},
 			{
 				"Name": "Al-Humaza",
+				"NameTranslated": "The Traducer",
 				"Number": "104",
 				"NumberOfAyahs": "9"
 			},
 			{
 				"Name": "Al-Fil",
+				"NameTranslated": "The Elephant",
 				"Number": "105",
 				"NumberOfAyahs": "5"
 			},
 			{
 				"Name": "Quraish",
+				"NameTranslated": "Quraysh",
 				"Number": "106",
 				"NumberOfAyahs": "4"
 			},
 			{
 				"Name": "Al-Maa'un",
+				"NameTranslated": "Almsgiving",
 				"Number": "107",
 				"NumberOfAyahs": "7"
 			},
 			{
 				"Name": "Al-Kawthar",
+				"NameTranslated": "Abundance",
 				"Number": "108",
 				"NumberOfAyahs": "3"
 			},
 			{
 				"Name": "Al-Kaafiroon",
+				"NameTranslated": "The Disbelievers",
 				"Number": "109",
 				"NumberOfAyahs": "6"
 			},
 			{
 				"Name": "An-Nasr",
+				"NameTranslated": "Divine Support",
 				"Number": "110",
 				"NumberOfAyahs": "3"
 			},
 			{
 				"Name": "Al-Masad",
+				"NameTranslated": "The Palm Fibre",
 				"Number": "111",
 				"NumberOfAyahs": "5"
 			},
 			{
 				"Name": "Al-Ikhlaas",
+				"NameTranslated": "Sincerity",
 				"Number": "112",
 				"NumberOfAyahs": "4"
 			},
 			{
 				"Name": "Al-Falaq",
+				"NameTranslated": "The Dawn",
 				"Number": "113",
 				"NumberOfAyahs": "5"
 			},
 			{
 				"Name": "An-Naas",
+				"NameTranslated": "Mankind",
 				"Number": "114",
 				"NumberOfAyahs": "6"
 			}
 		]
+	
 }
