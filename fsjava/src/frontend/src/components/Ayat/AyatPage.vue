@@ -1,20 +1,48 @@
 <template>
-    <div v-if="ayatSelected == false" class="navigation">
-      <button class="btn btn-dark" @click="previousPageSurah()" :disabled="pageSurah === 0"> ⇐ </button>
-      <button class="btn btn-dark" @click="nextPageSurah()" :disabled="pageSurah === maxPageSurah"> ⇒ </button>
+    <div v-if="ayatSelected == false" class="surahSelection">
+      <h2>Surah:</h2>
+      <div class="navigation">
+        <button class="btn btn-dark" @click="previousPageSurah()" :disabled="pageSurah === 0"> ⇐ </button>
+        <button class="btn btn-dark" @click="nextPageSurah()" :disabled="pageSurah === maxPageSurah"> ⇒ </button>
+      </div>
+      <select id="surahSelector" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" @change="getSelectedSurah()">
+         <option>-</option>  
+         <option v-for="surah in itemsToShowSurah" v-bind:id="surah.number">{{ surah.number }} ~ {{ surah.name }} ({{ surah.nameTranslated }})</option>
+      </select>
     </div>
-    <select v-if="ayatSelected == false" id="surahSelector" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" @change="getSelectedSurah()">
-      <option>-</option>  
-      <option v-for="surah in itemsToShowSurah" v-bind:id="surah.number">{{ surah.number }} ~ {{ surah.name }} ({{ surah.nameTranslated }})</option>
-    </select>
 
     <div v-if="surahSelected == true" class="surahContent">
-      <a style="text-align: left;">Select Ayat: ({{ this.surahSelectedNumber }}:Ayat)</a>
-      <textarea id="ayatSelector">{{this.surahSelectedNumber}}:</textarea>
-      <button @click="displaySurah(message)">SELECT</button>
-      <button @click="selectSurah()">SELECTSURAH</button>
-      <p>Ayat: {{ this.surahAyat }}</p>
-      <textarea v-if="ayatSelected == true"> {{ this.surahBody }}</textarea>
+      <div class="ayatSearchFunction" v-if="this.ayatSearch == true">
+        <a style="text-align: left;">Select Ayat: ({{ this.surahSelectedNumber }}:Ayat)</a>
+        <div class="input-group mb-3">
+           <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">{{this.surahSelectedNumber}}:</span>
+           </div>  
+              <input id="ayatSelector" type="number" class="form-control" placeholder="Ayat" aria-label="Ayat" aria-describedby="basic-addon1" min="1">
+        </div>
+        <button class="btn btn-success" @click="searchAyat()" title="display ayat">⇄</button>
+      </div>
+
+      <div class="contentInfoCenter">
+        <div class="contentInfoText">
+            <p id="selectedAyatCounterDisplay">Ayat: {{ this.selectedAyat }}</p>
+            <p id="maxAyatDisplay">Ayat-max: {{ this.surahAyat }}</p>
+        </div>
+        <div class="contentInfoButtons">
+          <button class="btn btn-danger" @click="selectSurah()" title="return">↶</button>
+          <button v-if="this.ayatSearch == false" class="btn btn-success" @click="this.ayatSearch = true" title="search ayat">🌟</button>
+        </div>
+      </div>
+
+      <div class="contentDisplayCenter">
+        <div v-if="ayatSelected == true" class="form-outline mb-4">
+          <textarea class="form-control" id="textAreaExample6" rows="6">{{ this.surahBody }}</textarea>
+        </div>    
+        <div v-if="ayatSelected == true" class="navigation">
+           <button id="buttonPreviousAyat" class="btn btn-dark" @click="previousAyat()" :disabled="this.selectedAyat === 1"> ⇐ </button>
+           <button id="buttonNextAyat" class="btn btn-dark" @click="nextAyat()" :disabled="this.selectedAyat == this.surahAyat"> ⇒ </button>
+        </div>
+      </div>
     </div>
 
 </template>
@@ -37,6 +65,8 @@ export default {
       //AyatSelector
       surahAyat: 0,
       ayatSelected: false,
+      selectedAyat: 1,
+      ayatSearch: false
     }
   },
   mounted() {
@@ -61,7 +91,6 @@ export default {
     },
     getSelectedSurah(){
       this.surahSelected = true;
-      this.ayatSelected = true;
 
       const selectedSurah = document.getElementById('surahSelector')
       const surahNumber = selectedSurah.value.split('~')
@@ -69,37 +98,63 @@ export default {
 
       const filterSurahArr = this.arrSurah.filter(x => x.number == this.surahSelectedNumber)
       this.surahAyat = filterSurahArr[0].numberAyahs
+      this.displaySurahAyat()
     },
-    displaySurah(){
+    displaySurahAyat(){
+      this.ayatSelected = true
+      axios.get(`http://api.alquran.cloud/v1/ayah/${this.surahSelectedNumber}:${this.selectedAyat}/en.asad`)
+      .then(response => {
+        this.surahBody = response.data.data.text
+      })
+      .catch(error => {
+        console.log(error);
+        window.alert("ayat does not exists ore the service has a problem, please try it again")
+        this.selectedAyat = 1
+      });  
+    },
+    searchAyat(){
       const ayat = document.getElementById('ayatSelector')
-      const body = ayat.value
-      const splittedBody = body.split(':')
-      
-      if(splittedBody[0] == this.surahSelectedNumber){
-        axios.get(`http://api.alquran.cloud/v1/ayah/${body}/en.asad`)
-        .then(response => {
-          this.surahBody = response.data.data.text
-        })
-        .catch(error => {
-          console.log(error);
-        });  
-      }
-      else{
-        window.alert('surah not equal to selected surah (' + this.surahSelectedNumber + ')' + 'ore the input has the wrong format')
-      }
-      
+      this.selectedAyat = ayat.value
+      this.ayatSearch = false
+      this.displaySurahAyat()   
     },
     selectSurah(){
       this.surahSelected = false;
       this.ayatSelected = false;
       this.surahBody = " "
+      this.selectedAyat = 1
     },
     previousPageSurah() {
       this.pageSurah--;
     },
     nextPageSurah() {
       this.pageSurah++;
+    },
+    previousAyat(){
+      this.selectedAyat--
+      this.displaySurahAyat();
+    },
+    nextAyat(){
+      this.selectedAyat++
+      this.displaySurahAyat();
     }
   }
 }
 </script>
+<style>
+.contentInfoText{
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start;
+}
+
+#maxAyatDisplay,#selectedAyatCounterDisplay{
+  margin: 0;
+}
+
+.contentInfoButtons{
+  display: flex;
+  justify-content: right;
+  align-items: right;
+}
+</style>
