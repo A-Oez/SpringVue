@@ -6,7 +6,7 @@
                     <div class="vue-modal-content">
                         <slot></slot>
                         <p>
-                            <button class="btn btn-dark" @click="closeModal">Close</button>
+                            <button class="btn btn-dark" @click="closeModal" style="margin-top: 5%;">Close</button>
                         </p>
                     </div>
                 </div>

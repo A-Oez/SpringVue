@@ -1,19 +1,19 @@
 <template>
     <div v-if="ayatSelected == false" class="surahSelection">
-      <h2>Surah:</h2>
-      <div class="navigation">
-        <button class="btn btn-dark" @click="previousPageSurah()" :disabled="pageSurah === 0"> ⇐ </button>
-        <button class="btn btn-dark" @click="nextPageSurah()" :disabled="pageSurah === maxPageSurah"> ⇒ </button>
-      </div>
+      <h3>Surah:</h3>
       <select id="surahSelector" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" @change="getSelectedSurah()">
          <option>-</option>  
          <option v-for="surah in itemsToShowSurah" v-bind:id="surah.number">{{ surah.number }} ~ {{ surah.name }} ({{ surah.nameTranslated }})</option>
       </select>
+      <div class="navigation">
+        <button class="btn btn-dark" @click="previousPageSurah()" :disabled="pageSurah === 0"> ⇐ </button>
+        <button class="btn btn-dark" @click="nextPageSurah()" :disabled="pageSurah === maxPageSurah"> ⇒ </button>
+      </div>
     </div>
 
     <div v-if="surahSelected == true" class="surahContent">
+      <h3>{{ this.surahSelectedName }}</h3>
       <div class="ayatSearchFunction" v-if="this.ayatSearch == true">
-        <a style="text-align: left;">Select Ayat: ({{ this.surahSelectedNumber }}:Ayat)</a>
         <div class="input-group mb-3">
            <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">{{this.surahSelectedNumber}}:</span>
@@ -57,6 +57,7 @@ export default {
       //SurahSelector
       arrSurah:[],
       surahSelectedNumber:0,
+      surahSelectedName: "",
       itemsPerPageSurah: 19,
       pageSurah: 0,
       surahSelected: false,
@@ -95,6 +96,7 @@ export default {
       const selectedSurah = document.getElementById('surahSelector')
       const surahNumber = selectedSurah.value.split('~')
       this.surahSelectedNumber = surahNumber[0].replace(/\s+/g, '')
+      this.surahSelectedName = surahNumber[1]
 
       const filterSurahArr = this.arrSurah.filter(x => x.number == this.surahSelectedNumber)
       this.surahAyat = filterSurahArr[0].numberAyahs
