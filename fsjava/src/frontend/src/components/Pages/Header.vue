@@ -11,13 +11,11 @@
     </div> 
   </div>
   
-  <div class="headerRightSection"> 
-    <a id="headerText" @click="this.isOpen = true">
-      Say: "None can bear witness between me and you as God does: verily, fully aware is He of His creatures, and He sees all [that is in their hearts]." 1:5
-    </a>
+  <div class="headerRightSection" @click="this.isOpen = true"> 
+    <AyatGenerator/>
   </div>
   <Modal :open="this.isOpen" @close="this.isOpen = !isOpen">
-      <AyatPaging/>
+    <AyatPaging/>
   </Modal>
 </template>
 
@@ -25,6 +23,7 @@
 import GetTimeHeader from '../Time/GetTimeHeader.vue';
 import GetWeatherHeader from '../Weather/GetWeatherHeader.vue';
 import AyatPaging from '../Ayat/AyatPaging.vue';
+import AyatGenerator from '../Ayat/AyatGenerator.vue';
 import Modal from '../InfoCard/Modal.vue'
 import {ref} from "vue";
 
@@ -35,6 +34,7 @@ export default {
     GetTimeHeader,
     GetWeatherHeader,
     AyatPaging,
+    AyatGenerator,
     Modal
   },
   setup(){

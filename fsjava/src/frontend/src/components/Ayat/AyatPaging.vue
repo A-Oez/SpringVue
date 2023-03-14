@@ -37,7 +37,7 @@
 
       <div class="contentDisplayCenter">
         <div v-if="ayatSelected == true" class="form-outline mb-4">
-          <textarea class="form-control" id="textAreaExample6" rows="6">{{ this.surahBody }}</textarea>
+          <textarea class="form-control" id="textAreaExample6" rows="6">{{ this.ayatBody }}</textarea>
         </div>    
         <div v-if="ayatSelected == true" class="navigation">
            <button id="buttonPreviousAyat" class="btn btn-dark" @click="previousAyat()" :disabled="this.selectedAyat === 1 || buttonDisabled"> ⇐ </button>
@@ -62,7 +62,7 @@ export default {
       itemsPerPageSurah: 19,
       pageSurah: 0,
       surahSelected: false,
-      surahBody: "",
+      ayatBody: "",
       
       //AyatSelector
       surahAyat: 0,
@@ -86,10 +86,12 @@ export default {
   },
   methods:{
     getSurahs(){
-      const configJson = require('./SurahMapping.json');
-      for(let i = 0; i < 114; i++){
-        const surahObject = { name: configJson.Surah[i].Name, number: configJson.Surah[i].Number, numberAyahs: configJson.Surah[i].NumberOfAyahs, nameTranslated: configJson.Surah[i].NameTranslated};   
-        this.arrSurah.push(surahObject)
+      if(this.arrSurah == 0){
+        const configJson = require('./SurahMapping.json');
+        for(let i = 0; i < 114; i++){
+          const surahObject = { name: configJson.Surah[i].Name, number: configJson.Surah[i].Number, numberAyahs: configJson.Surah[i].NumberOfAyahs, nameTranslated: configJson.Surah[i].NameTranslated};   
+          this.arrSurah.push(surahObject)
+        }
       }
     },
     getSelectedSurah(){
@@ -108,7 +110,7 @@ export default {
       this.ayatSelected = true
       axios.get(`http://api.alquran.cloud/v1/ayah/${this.surahSelectedNumber}:${this.selectedAyat}/en.asad`)
       .then(response => {
-        this.surahBody = response.data.data.text
+        this.ayatBody = response.data.data.text
       })
       .catch(error => {
         console.log(error);
@@ -128,7 +130,7 @@ export default {
     selectSurah(){
       this.surahSelected = false;
       this.ayatSelected = false;
-      this.surahBody = " "
+      this.ayatBody = " "
       this.selectedAyat = 1
     },
     previousPageSurah() {
