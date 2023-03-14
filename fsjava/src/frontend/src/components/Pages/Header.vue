@@ -13,18 +13,18 @@
   
   <div class="headerRightSection"> 
     <a id="headerText" @click="this.isOpen = true">
-      select ayat:
+      Say: "None can bear witness between me and you as God does: verily, fully aware is He of His creatures, and He sees all [that is in their hearts]." 1:5
     </a>
   </div>
   <Modal :open="this.isOpen" @close="this.isOpen = !isOpen">
-      <AyatPage/>
+      <AyatPaging/>
   </Modal>
 </template>
 
 <script>
 import GetTimeHeader from '../Time/GetTimeHeader.vue';
 import GetWeatherHeader from '../Weather/GetWeatherHeader.vue';
-import AyatPage from '../Ayat/AyatPage.vue';
+import AyatPaging from '../Ayat/AyatPaging.vue';
 import Modal from '../InfoCard/Modal.vue'
 import {ref} from "vue";
 
@@ -34,7 +34,7 @@ export default {
   components: {
     GetTimeHeader,
     GetWeatherHeader,
-    AyatPage,
+    AyatPaging,
     Modal
   },
   setup(){
@@ -57,5 +57,6 @@ export default {
 #headerText{
   background-color:#d1c9ca;
   color: #413637;
+  font-size: 14px;
 }
 </style>

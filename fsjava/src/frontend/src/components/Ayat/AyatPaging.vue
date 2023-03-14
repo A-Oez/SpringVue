@@ -30,6 +30,7 @@
         </div>
         <div class="contentInfoButtons">
           <button class="btn btn-danger" @click="selectSurah()" title="return">↶</button>
+          <button class="btn btn-primary" title="translate" @click="translateAyat()">↺</button>
           <button v-if="this.ayatSearch == false" class="btn btn-success" @click="this.ayatSearch = true" title="search ayat">🌟</button>
         </div>
       </div>
@@ -39,8 +40,8 @@
           <textarea class="form-control" id="textAreaExample6" rows="6">{{ this.surahBody }}</textarea>
         </div>    
         <div v-if="ayatSelected == true" class="navigation">
-           <button id="buttonPreviousAyat" class="btn btn-dark" @click="previousAyat()" :disabled="this.selectedAyat === 1"> ⇐ </button>
-           <button id="buttonNextAyat" class="btn btn-dark" @click="nextAyat()" :disabled="this.selectedAyat == this.surahAyat"> ⇒ </button>
+           <button id="buttonPreviousAyat" class="btn btn-dark" @click="previousAyat()" :disabled="this.selectedAyat === 1 || buttonDisabled"> ⇐ </button>
+           <button id="buttonNextAyat" class="btn btn-dark" @click="nextAyat()" :disabled="this.selectedAyat == this.surahAyat || buttonDisabled"> ⇒ </button>
         </div>
       </div>
     </div>
@@ -51,7 +52,7 @@
 import axios from 'axios';
 
 export default {
-  name: 'AyatPage',
+  name: 'AyatPaging',
   data() {
     return {
       //SurahSelector
@@ -67,7 +68,8 @@ export default {
       surahAyat: 0,
       ayatSelected: false,
       selectedAyat: 1,
-      ayatSearch: false
+      ayatSearch: false,
+      buttonDisabled: false
     }
   },
   mounted() {
@@ -120,6 +122,9 @@ export default {
       this.ayatSearch = false
       this.displaySurahAyat()   
     },
+    translateAyat(){
+
+    },
     selectSurah(){
       this.surahSelected = false;
       this.ayatSelected = false;
@@ -133,10 +138,20 @@ export default {
       this.pageSurah++;
     },
     previousAyat(){
+      this.buttonDisabled = true
+      setTimeout(() => {
+        this.buttonDisabled = false
+      }, 1400)
+
       this.selectedAyat--
       this.displaySurahAyat();
     },
     nextAyat(){
+      this.buttonDisabled = true
+      setTimeout(() => {
+        this.buttonDisabled = false
+      }, 1400)
+
       this.selectedAyat++
       this.displaySurahAyat();
     }
