@@ -3,7 +3,7 @@
       <h3>Surah:</h3>
       <select id="surahSelector" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" @change="getSelectedSurah()">
          <option>-</option>  
-         <option v-for="surah in itemsToShowSurah" v-bind:id="surah.number">{{ surah.number }} ~ {{ surah.name }} ({{ surah.nameTranslated }})</option>
+         <option v-for="surah in itemsToShowSurah" v-bind:id="surah.number">{{ surah.number }} ~ {{ surah.name }}</option>
       </select>
       <div class="navigation">
         <button class="btn btn-dark" @click="previousPageSurah()" :disabled="pageSurah === 0"> ⇐ </button>
@@ -12,7 +12,7 @@
     </div>
 
     <div v-if="surahSelected == true" class="surahContent">
-      <h3>{{ this.surahSelectedName }}</h3>
+      <h3>{{ this.surahSelectedNumber }} ~ {{ this.surahSelectedName }}</h3>
       <div class="ayatSearchFunction" v-if="this.ayatSearch == true">
         <div class="input-group mb-3">
            <div class="input-group-prepend">
@@ -30,8 +30,7 @@
         </div>
         <div class="contentInfoButtons">
           <button class="btn btn-danger" @click="selectSurah()" title="return">↶</button>
-          <button class="btn btn-primary" title="translate" @click="translateAyat()">↺</button>
-          <button v-if="this.ayatSearch == false" class="btn btn-success" @click="this.ayatSearch = true" title="search ayat">🌟</button>
+          <button v-if="this.ayatSearch == false" class="btn btn-primary" @click="this.ayatSearch = true" title="search ayat">🌟</button>
         </div>
       </div>
 
@@ -89,7 +88,7 @@ export default {
       if(this.arrSurah == 0){
         const configJson = require('./SurahMapping.json');
         for(let i = 0; i < 114; i++){
-          const surahObject = { name: configJson.Surah[i].Name, number: configJson.Surah[i].Number, numberAyahs: configJson.Surah[i].NumberOfAyahs, nameTranslated: configJson.Surah[i].NameTranslated};   
+          const surahObject = { name: configJson.Surah[i].Name, number: configJson.Surah[i].Number, numberAyahs: configJson.Surah[i].NumberOfAyahs};   
           this.arrSurah.push(surahObject)
         }
       }
@@ -108,7 +107,7 @@ export default {
     },
     displaySurahAyat(){
       this.ayatSelected = true
-      axios.get(`http://api.alquran.cloud/v1/ayah/${this.surahSelectedNumber}:${this.selectedAyat}/en.asad`)
+      axios.get(`http://api.alquran.cloud/v1/ayah/${this.surahSelectedNumber}:${this.selectedAyat}/tr.diyanet`)
       .then(response => {
         this.ayatBody = response.data.data.text
       })
@@ -123,9 +122,6 @@ export default {
       this.selectedAyat = ayat.value
       this.ayatSearch = false
       this.displaySurahAyat()   
-    },
-    translateAyat(){
-
     },
     selectSurah(){
       this.surahSelected = false;

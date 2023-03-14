@@ -34,7 +34,7 @@ export default {
         this.displaySurahAyat(choosedSurahObject.number,randomAyatValue)
     },
     displaySurahAyat(surah,ayat){
-        axios.get(`http://api.alquran.cloud/v1/ayah/${surah}:${ayat}/en.asad`)
+        axios.get(`http://api.alquran.cloud/v1/ayah/${surah}:${ayat}/tr.diyanet`)
         .then(response => {
             const content = response.data.data.text + ` | ${surah}:${ayat}`
             this.checkContentLength(content)
