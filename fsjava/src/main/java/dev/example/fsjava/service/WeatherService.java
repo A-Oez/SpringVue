@@ -14,11 +14,11 @@ import java.util.List;
 
 
 @Service
-public class ScraperServiceWeather {
+public class WeatherService {
     private IHTMLDocument document;
 
     @Autowired
-    public ScraperServiceWeather(@Qualifier("TypeWeather") HTMLType type){this.document = HTMLFactory.getInstances(type);}
+    public WeatherService(@Qualifier("TypeWeather") HTMLType type){this.document = HTMLFactory.getInstances(type);}
 
     public String extractData(String place, String time) throws IOException {
         String url = "https://www.google.de/search?q=wetter+" + place + "+" + time + "+" + "Uhr";

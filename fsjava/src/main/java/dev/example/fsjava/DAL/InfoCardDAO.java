@@ -1,6 +1,7 @@
 package dev.example.fsjava.DAL;
 
 import dev.example.fsjava.DTO.InfoCardDTO;
+import dev.example.fsjava.Model.InfoCardModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -15,10 +16,10 @@ public class InfoCardDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<InfoCardDTO> queryData(){
+    public List<InfoCardModel> queryData(){
         String query = "SELECT * FROM content WHERE content.type IS NOT NULL AND content.value IS NOT NULL;";
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(query);
-        List<InfoCardDTO> result = new ArrayList<>();
+        List<InfoCardModel> result = new ArrayList<>();
 
         for (Map<String, Object> row : rows) {
             int ID = (int) row.get("id");
@@ -26,13 +27,13 @@ public class InfoCardDAO {
             String value = row.get("value").toString();
             Boolean check = (Boolean) row.get("checkT");
 
-            InfoCardDTO model = new InfoCardDTO(ID, type,value, check);
+            InfoCardModel model = new InfoCardModel(ID, type,value, check);
             result.add(model);
         }
         return result;
     }
 
-    public boolean addData(InfoCardDTO model){
+    public boolean addData(InfoCardModel model){
         String query = "INSERT INTO content (type, value, checkT) VALUES (?, ?, ?)";
         try {
             jdbcTemplate.update(query, model.getType(), model.getValue(), model.isCheck());
@@ -43,7 +44,7 @@ public class InfoCardDAO {
         }
     }
 
-    public boolean updateData(InfoCardDTO model){
+    public boolean updateData(InfoCardModel model){
         String query = "UPDATE content SET type=?, value=?, checkT=? WHERE id=?";
         try {
             jdbcTemplate.update(query, model.getType(), model.getValue(), model.isCheck(), model.getID());

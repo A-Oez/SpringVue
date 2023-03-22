@@ -36,7 +36,7 @@ class PrayersDAOTest {
     }
 
     private static void addValuesToList() throws IOException {
-        Elements elements = (Elements) prayersDao.getData(url).get(0);
+        Elements elements = prayersDao.getData(url).get(0);
         for(Element value: elements){
             prayersList.add(value.text());
         }

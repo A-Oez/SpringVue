@@ -3,12 +3,15 @@ package dev.example.fsjava.DAL.Scraping;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.jsoup.nodes.Element;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 class WeatherDAOTest {
@@ -16,7 +19,7 @@ class WeatherDAOTest {
 
     @Test
     void checkListEntry() throws IOException {
-        String place = "Neudenau";
+        String place = "Hamburg";
         String time = "14:14";
         List<Element> daoWeatherList = daoWeather.getData("https://www.google.de/search?q=wetter+" + place + "+" + time + "+" + "Uhr");
 

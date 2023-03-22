@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ScraperServicePrayers {
+public class PrayersService {
     private final static String url = "https://www.namaztakvimi.com/almanya/gundelsheim-ezan-vakti.html";
     private static PrayingDTO dto = new PrayingDTO();
     private static List<String> valueList = new ArrayList<>();
@@ -26,7 +26,7 @@ public class ScraperServicePrayers {
     private static String Date;
 
     @Autowired
-    public ScraperServicePrayers(@Qualifier("TypePrayers") HTMLType type){
+    public PrayersService(@Qualifier("TypePrayers") HTMLType type){
         this.document = HTMLFactory.getInstances(type);
     }
 
