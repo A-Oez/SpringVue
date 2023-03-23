@@ -4,6 +4,7 @@ import dev.example.fsjava.DAL.InfoCardDAO;
 import dev.example.fsjava.DTO.InfoCardDTO;
 import dev.example.fsjava.Mapper.InfoCardMapper;
 import dev.example.fsjava.Model.InfoCardModel;
+import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -53,7 +54,7 @@ class InfoCardServiceTest {
         when(infoCardDAO.queryData()).thenReturn(infoCardModelList);
 
         // Call the getInfoCards() method of the InfoCardService
-        List<InfoCardDTO> result = infoCardService.getInfoCards();
+        List<InfoCardDTO> result = infoCardService.getInfoCards(null);
 
         // Verify that InfoCardDAO's queryData() method was called once
         verify(infoCardDAO, times(1)).queryData();

@@ -5,6 +5,10 @@ import dev.example.fsjava.DAL.Scraping.HTMLFactory;
 import dev.example.fsjava.DAL.Scraping.HTMLType;
 import dev.example.fsjava.DAL.Scraping.IHTMLDocument;
 import dev.example.fsjava.DTO.WeatherDTO;
+import dev.example.fsjava.logger.LogInbound;
+import dev.example.fsjava.logger.LogOutbound;
+import dev.example.fsjava.logger.LogService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -20,13 +24,25 @@ public class WeatherService {
     @Autowired
     public WeatherService(@Qualifier("TypeWeather") HTMLType type){this.document = HTMLFactory.getInstances(type);}
 
-    public String extractData(String place, String time) throws IOException {
-        String url = "https://www.google.de/search?q=wetter+" + place + "+" + time + "+" + "Uhr";
-        List<Element> list = document.getData(url);
+    public String extractData(String place, String time, HttpServletRequest request) throws IOException {
+        LogInbound inbound = LogService.createInbound(request.getRequestURI(), request);
+        String body = "";
 
-        String status = list.get(0).text();
-        String temperature = list.get(1).text();
+        try{
+            String url = "https://www.google.de/search?q=wetter+" + place + "+" + time + "+" + "Uhr";
+            List<Element> list = document.getData(url);
+            String status = list.get(0).text();
+            String temperature = list.get(1).text();
+            body = new Gson().toJson(new WeatherDTO(status,temperature));
 
-        return new Gson().toJson(new WeatherDTO(status,temperature));
+            LogOutbound outbound = LogService.createOutbound(body);
+            LogService.logger(inbound,outbound,"SUCCESS");
+        }
+        catch(Exception ex){
+            LogOutbound outbound = LogService.createOutbound(ex.getMessage());
+            LogService.logger(inbound,outbound,ex.getMessage());
+        }
+
+        return body;
     }
 }

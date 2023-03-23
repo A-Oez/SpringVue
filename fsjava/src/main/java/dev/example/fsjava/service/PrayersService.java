@@ -5,6 +5,10 @@ import dev.example.fsjava.DAL.Scraping.HTMLFactory;
 import dev.example.fsjava.DAL.Scraping.HTMLType;
 import dev.example.fsjava.DAL.Scraping.IHTMLDocument;
 import dev.example.fsjava.DTO.PrayingDTO;
+import dev.example.fsjava.logger.LogInbound;
+import dev.example.fsjava.logger.LogOutbound;
+import dev.example.fsjava.logger.LogService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -30,12 +34,26 @@ public class PrayersService {
         this.document = HTMLFactory.getInstances(type);
     }
 
-    public String extractData() throws IOException {
-        if(valueList.size() != 0 && getDate(valueList.get(0))){return new Gson().toJson(dto);}
-        Elements elements = (Elements) document.getData(url).get(0);
-        for(Element ads : elements){valueList.add(ads.text());}
-        setDTOAttributes();
-        return new Gson().toJson(dto);
+    public String extractData(HttpServletRequest request) throws IOException {
+        LogInbound inbound = LogService.createInbound(request.getRequestURI(), request);
+        String body = "";
+
+        try {
+            if(valueList.size() != 0 && getDate(valueList.get(0))){return new Gson().toJson(dto);}
+            Elements elements = (Elements) document.getData(url).get(0);
+            for(Element ads : elements){valueList.add(ads.text());}
+            setDTOAttributes();
+            body = new Gson().toJson(dto);
+
+            LogOutbound outbound = LogService.createOutbound(body);
+            LogService.logger(inbound,outbound,"SUCCESS");
+        }
+        catch (Exception ex){
+            LogOutbound outbound = LogService.createOutbound(ex.getMessage());
+            LogService.logger(inbound,outbound,ex.getMessage());
+        }
+
+        return body;
     }
 
     private boolean getDate(String elements){
