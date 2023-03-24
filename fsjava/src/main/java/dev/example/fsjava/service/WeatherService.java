@@ -6,7 +6,6 @@ import dev.example.fsjava.DAL.Scraping.HTMLType;
 import dev.example.fsjava.DAL.Scraping.IHTMLDocument;
 import dev.example.fsjava.DTO.WeatherDTO;
 import dev.example.fsjava.logger.LogInbound;
-import dev.example.fsjava.logger.LogOutbound;
 import dev.example.fsjava.logger.LogService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,12 +34,10 @@ public class WeatherService {
             String temperature = list.get(1).text();
             body = new Gson().toJson(new WeatherDTO(status,temperature));
 
-            LogOutbound outbound = LogService.createOutbound(body);
-            LogService.logger(inbound,outbound,"SUCCESS");
+            LogService.logger(inbound,"SUCCESS");
         }
         catch(Exception ex){
-            LogOutbound outbound = LogService.createOutbound(ex.getMessage());
-            LogService.logger(inbound,outbound,ex.getMessage());
+            LogService.logger(inbound,ex.getMessage());
         }
 
         return body;

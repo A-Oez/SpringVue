@@ -13,15 +13,14 @@ public class LogService {
     private static final Logger logger = LoggerFactory.getLogger(LogService.class);
 
 
-    public static void logger(LogInbound inbound,LogOutbound outbound, String message){
+    public static void logger(LogInbound inbound, String message){
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
         String formattedDate = sdf.format(date);
 
         LogModel model = new LogModel(formattedDate,
                                       message,
-                                      inbound,
-                                      outbound);
+                                      inbound);
 
         logger.info(new Gson().toJson(model));
     }
@@ -32,10 +31,5 @@ public class LogService {
                                             request.getQueryString(),
                                             request.getRequestURI());
         return inbound;
-    }
-
-    public static LogOutbound createOutbound(String body){
-        LogOutbound outbound = new LogOutbound(body);
-        return outbound;
     }
 }
