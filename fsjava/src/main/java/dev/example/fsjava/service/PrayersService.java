@@ -33,12 +33,12 @@ public class PrayersService {
         this.document = HTMLFactory.getInstances(type);
     }
 
-    public String extractData(HttpServletRequest request) throws IOException {
+    public String extractData(HttpServletRequest request) {
         LogInbound inbound = LogService.createInbound(request.getRequestURI(), request);
-        String body = "";
+        String body = new Gson().toJson(dto);
 
         try {
-            if(valueList.size() != 0 && getDate(valueList.get(0))){return new Gson().toJson(dto);}
+            if(valueList.size() != 0 && getDate(valueList.get(0))){LogService.logger(inbound,"SUCCESS"); return body;}
             Elements elements = (Elements) document.getData(url).get(0);
             for(Element ads : elements){valueList.add(ads.text());}
             setDTOAttributes();

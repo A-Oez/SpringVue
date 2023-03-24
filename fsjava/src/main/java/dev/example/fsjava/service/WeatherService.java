@@ -23,7 +23,7 @@ public class WeatherService {
     @Autowired
     public WeatherService(@Qualifier("TypeWeather") HTMLType type){this.document = HTMLFactory.getInstances(type);}
 
-    public String extractData(String place, String time, HttpServletRequest request) throws IOException {
+    public String extractData(String place, String time, HttpServletRequest request) {
         LogInbound inbound = LogService.createInbound(request.getRequestURI(), request);
         String body = "";
 

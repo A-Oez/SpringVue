@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,18 +24,18 @@ public class InfoCardService {
 
     public List<InfoCardDTO> getInfoCards(HttpServletRequest request){
         LogInbound inbound = LogService.createInbound(request.getRequestURI(), request);
-        List<InfoCardDTO> dtoList = null;
+        List<InfoCardDTO> dtoList = new ArrayList<>();
 
         try{
             List<InfoCardModel> infoCardModelList = infoCardDAO.queryData();
             dtoList = InfoCardMapper.convertToListDTO(infoCardModelList);
             LogService.logger(inbound,"SUCCESS");
-            return dtoList;
         }
         catch (Exception ex){
             LogService.logger(inbound,ex.getMessage());
-            return dtoList;
         }
+
+        return dtoList;
     }
 
     public ResponseEntity<String> addInfoCards(String jsonInbound, HttpServletRequest request){
@@ -53,13 +54,13 @@ public class InfoCardService {
                 message = new ResponseEntity<>("Datensatz erfolgreich erstellt", HttpStatus.CREATED);
             }
             LogService.logger(inbound, message.toString());
-            return message;
         }
         catch (Exception ex){
             message = new ResponseEntity<>("Fehler beim Erstellen des Datensatzes: " + ex.getMessage() , HttpStatus.INTERNAL_SERVER_ERROR);
             LogService.logger(inbound,message.toString());
-            return message;
         }
+
+        return message;
     }
 
     public ResponseEntity<String> updateInfoCards(String jsonInbound, HttpServletRequest request){
@@ -78,13 +79,13 @@ public class InfoCardService {
                 message = new ResponseEntity<>("Datensatz erfolgreich geupdatet", HttpStatus.CREATED);
             }
             LogService.logger(inbound,message.toString());
-            return message;
         }
         catch (Exception ex){
             message = new ResponseEntity<>("Fehler beim updaten des Datensatzes: " + ex.getMessage() , HttpStatus.INTERNAL_SERVER_ERROR);
             LogService.logger(inbound,message.toString());
-            return message;
         }
+
+        return message;
     }
 
     public ResponseEntity<String> deleteInfoCards(String ID, HttpServletRequest request){
@@ -101,12 +102,12 @@ public class InfoCardService {
                 message = new ResponseEntity<>("Datensatz erfolgreich gelöscht", HttpStatus.CREATED);
             }
             LogService.logger(inbound,message.toString());
-            return message;
         }
         catch (Exception ex){
             message = new ResponseEntity<>("Fehler beim löschen des Datensatzes: " + ex.getMessage() , HttpStatus.INTERNAL_SERVER_ERROR);
             LogService.logger(inbound, message.toString());
-            return message;
         }
+
+        return message;
     }
 }
