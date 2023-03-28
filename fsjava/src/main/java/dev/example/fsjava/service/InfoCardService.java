@@ -45,13 +45,11 @@ public class InfoCardService {
         try{
             InfoCardDTO infoCardDTO = new Gson().fromJson(jsonInbound, InfoCardDTO.class);
             InfoCardModel infoCardModel = InfoCardMapper.convertToModel(infoCardDTO);
+            message = new ResponseEntity<>("Datensatz erfolgreich erstellt", HttpStatus.CREATED);
             if(infoCardDAO.addData(infoCardModel) == false) {
                 message = new ResponseEntity<>(
                         "Fehler beim Erstellen des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut"
                          , HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-            else{
-                message = new ResponseEntity<>("Datensatz erfolgreich erstellt", HttpStatus.CREATED);
             }
             LogService.logger(inbound, message.toString());
         }
@@ -70,13 +68,11 @@ public class InfoCardService {
         try{
             InfoCardDTO infoCardDTO = new Gson().fromJson(jsonInbound, InfoCardDTO.class);
             InfoCardModel infoCardModel = InfoCardMapper.convertToModel(infoCardDTO);
+            message = new ResponseEntity<>("Datensatz erfolgreich geupdatet", HttpStatus.CREATED);
             if(infoCardDAO.updateData(infoCardModel) == false){
                 message = new ResponseEntity<>(
                      "Fehler beim updaten des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut"
                          , HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-            else{
-                message = new ResponseEntity<>("Datensatz erfolgreich geupdatet", HttpStatus.CREATED);
             }
             LogService.logger(inbound,message.toString());
         }
@@ -93,13 +89,11 @@ public class InfoCardService {
         ResponseEntity message;
 
         try{
+            message = new ResponseEntity<>("Datensatz erfolgreich gelöscht", HttpStatus.CREATED);
             if(infoCardDAO.deleteData(ID) == false){
                 message = new ResponseEntity<>
                         ("Fehler beim löschen des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut"
                          , HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-            else{
-                message = new ResponseEntity<>("Datensatz erfolgreich gelöscht", HttpStatus.CREATED);
             }
             LogService.logger(inbound,message.toString());
         }

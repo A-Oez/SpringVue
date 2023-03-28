@@ -1,5 +1,5 @@
 <template>
-    <div v-if="ayatSelected == false" class="surahSelection">
+    <div v-if="surahSelected == false" class="surahSelection">
       <h3>Surah:</h3>
       <select id="surahSelector" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" @change="getSelectedSurah()">
          <option>-</option>  
@@ -30,18 +30,23 @@
         </div>
         <div class="contentInfoButtons">
           <button class="btn btn-danger" @click="selectSurah()" title="return">↶</button>
+          <button class="btn btn-success" @click=" translate()" title="translate">↜</button>
           <button v-if="this.ayatSearch == false" class="btn btn-primary" @click="this.ayatSearch = true" title="search ayat">🌟</button>
         </div>
       </div>
 
       <div class="contentDisplayCenter">
-        <div v-if="ayatSelected == true" class="form-outline mb-4">
+        <div v-if="surahSelected == true" class="form-outline mb-4">
           <textarea class="form-control" id="textAreaExample6" rows="6">{{ this.ayatBody }}</textarea>
         </div>    
-        <div v-if="ayatSelected == true" class="navigation">
-           <button id="buttonPreviousAyat" class="btn btn-dark" @click="previousAyat()" :disabled="this.selectedAyat === 1 || buttonDisabled"> ⇐ </button>
-           <button id="buttonNextAyat" class="btn btn-dark" @click="nextAyat()" :disabled="this.selectedAyat == this.surahAyat || buttonDisabled"> ⇒ </button>
+        <div v-if="surahSelected == true" class="navigation">
+           <button id="buttonPreviousAyat" class="btn btn-dark" @click="previousAyat()" :disabled="this.selectedAyat === 1 || buttonAyatPaging"> ⇐ </button>
+           <button id="buttonNextAyat" class="btn btn-dark" @click="nextAyat()" :disabled="this.selectedAyat == this.surahAyat || buttonAyatPaging"> ⇒ </button>
+           <audio controls>
+             <source src="https://cdn.islamic.network/quran/audio/192/ar.abdulbasitmurattal/1.mp3" type="audio/mpeg"> <!--Ayat und Surah als Parameter übergeben-->
+            </audio> 
         </div>
+
       </div>
     </div>
 
@@ -65,10 +70,10 @@ export default {
       
       //AyatSelector
       surahAyat: 0,
-      ayatSelected: false,
       selectedAyat: 1,
       ayatSearch: false,
-      buttonDisabled: false
+      buttonAyatPaging: false,
+      translation: false
     }
   },
   mounted() {
@@ -105,9 +110,11 @@ export default {
       this.surahAyat = filterSurahArr[0].numberAyahs
       this.displaySurahAyat()
     },
-    displaySurahAyat(){
-      this.ayatSelected = true
-      axios.get(`http://api.alquran.cloud/v1/ayah/${this.surahSelectedNumber}:${this.selectedAyat}/tr.diyanet`)
+    displaySurahAyat(link){
+      if(link == null){
+        link = `http://api.alquran.cloud/v1/ayah/${this.surahSelectedNumber}:${this.selectedAyat}`
+      }
+      axios.get(link)
       .then(response => {
         this.ayatBody = response.data.data.text
       })
@@ -117,6 +124,16 @@ export default {
         this.selectedAyat = 1
       });  
     },
+    translate(){
+      if(this.translation == false){
+        this.displaySurahAyat(`http://api.alquran.cloud/v1/ayah/${this.surahSelectedNumber}:${this.selectedAyat}/tr.diyanet`)
+        this.translation = true
+      }
+      else{
+        this.translation = false
+        this.displaySurahAyat()
+      }
+    },
     searchAyat(){
       const ayat = document.getElementById('ayatSelector')
       this.selectedAyat = ayat.value
@@ -125,7 +142,6 @@ export default {
     },
     selectSurah(){
       this.surahSelected = false;
-      this.ayatSelected = false;
       this.ayatBody = " "
       this.selectedAyat = 1
     },
@@ -136,20 +152,22 @@ export default {
       this.pageSurah++;
     },
     previousAyat(){
-      this.buttonDisabled = true
+      this.buttonAyatPaging = true
       setTimeout(() => {
-        this.buttonDisabled = false
-      }, 1400)
+        this.buttonAyatPaging = false
+      }, 100)
 
+      this.translation = false
       this.selectedAyat--
       this.displaySurahAyat();
     },
     nextAyat(){
-      this.buttonDisabled = true
+      this.buttonAyatPaging = true
       setTimeout(() => {
-        this.buttonDisabled = false
-      }, 1400)
+        this.buttonAyatPaging = false
+      }, 100)
 
+      this.translation = false
       this.selectedAyat++
       this.displaySurahAyat();
     }
