@@ -37,13 +37,13 @@
 
       <div class="contentDisplayCenter">
         <div v-if="surahSelected == true" class="form-outline mb-4">
-          <textarea class="form-control" id="textAreaExample6" rows="6">{{ this.ayatBody }}</textarea>
+          <textarea class="form-control" id="displayAyat" rows="3" :lang="detectLanguage()">{{ this.ayatBody }}</textarea>
         </div>    
         <div v-if="surahSelected == true" class="navigation">
            <button id="buttonPreviousAyat" class="btn btn-dark" @click="previousAyat()" :disabled="this.selectedAyat === 1 || buttonAyatPaging"> ⇐ </button>
            <button id="buttonNextAyat" class="btn btn-dark" @click="nextAyat()" :disabled="this.selectedAyat == this.surahAyat || buttonAyatPaging"> ⇒ </button>
            <audio controls>
-             <source src="https://cdn.islamic.network/quran/audio/192/ar.abdulbasitmurattal/1.mp3" type="audio/mpeg"> <!--Ayat und Surah als Parameter übergeben-->
+            <source :src="`https://cdn.islamic.network/quran/audio-surah/128/ar.abdulazizazzahrani/${this.surahSelectedNumber}.mp3`" type="audio/mpeg">
             </audio> 
         </div>
 
@@ -134,6 +134,12 @@ export default {
         this.displaySurahAyat()
       }
     },
+    detectLanguage(){
+      if(this.translation == true){
+        return 'tr'
+      }
+      return 'ar'
+    },
     searchAyat(){
       const ayat = document.getElementById('ayatSelector')
       this.selectedAyat = ayat.value
@@ -190,4 +196,9 @@ export default {
   justify-content: right;
   align-items: right;
 }
+
+#displayAyat[lang="ar"]{
+  font-size: 35px;
+}
+
 </style>
