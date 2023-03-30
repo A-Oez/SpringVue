@@ -1,4 +1,5 @@
 <template>
+  <!--
     <div v-if="surahSelected == false" class="surahSelection">
       <h3>Surah:</h3>
       <select id="surahSelector" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" @change="getSelectedSurah()">
@@ -49,14 +50,29 @@
 
       </div>
     </div>
+  -->
+    <SurahSelection/>
+    <AyatContent/>
 
+    <!--
+      - Unterteilung: 
+        -> Surah picker (Parameter: SurahSelected = false)
+        -> Content Listing (Parameter: SurahSelected = true)
+        -> Search by Ayat (Parameter: ayatSearch = true)
+    -->
 </template>
 
 <script>
 import axios from 'axios';
+import SurahSelection from './SurahSelection.vue';
+import AyatContent from './AyatContent.vue';
 
 export default {
   name: 'AyatPaging',
+  components:{
+    SurahSelection,
+    AyatContent
+  },
   data() {
     return {
       //SurahSelector
@@ -91,7 +107,7 @@ export default {
   methods:{
     getSurahs(){
       if(this.arrSurah == 0){
-        const configJson = require('./SurahMapping.json');
+        const configJson = require('/C:/Users/Ahmet Ö/Coding/fsjava/fsjava/src/frontend/src/components/Ayat/SurahMapping.json');
         for(let i = 0; i < 114; i++){
           const surahObject = { name: configJson.Surah[i].Name, number: configJson.Surah[i].Number, numberAyahs: configJson.Surah[i].NumberOfAyahs};   
           this.arrSurah.push(surahObject)

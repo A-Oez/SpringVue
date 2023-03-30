@@ -22,7 +22,7 @@
 <script>
 import GetTimeHeader from '../Time/GetTimeHeader.vue';
 import GetWeatherHeader from '../Weather/GetWeatherHeader.vue';
-import AyatPaging from '../Ayat/AyatPaging.vue';
+import AyatPaging from '../Ayat/Paging/AyatPaging.vue';
 import AyatGenerator from '../Ayat/AyatGenerator.vue';
 import Modal from '../InfoCard/Modal.vue'
 import {ref} from "vue";
