@@ -1,5 +1,4 @@
 <template>
-      <div v-if="surahSelected == true" class="surahContent">
         <h3>{{ this.surahSelectedNumber }} ~ {{ this.surahSelectedName }}</h3>
         <div class="ayatSearchFunction" v-if="this.ayatSearch == true">
           <div class="input-group mb-3">
@@ -24,10 +23,10 @@
         </div>
   
         <div class="contentDisplayCenter">
-          <div v-if="surahSelected == true" class="form-outline mb-4">
+          <div class="form-outline mb-4">
             <textarea class="form-control" id="displayAyat" rows="3" :lang="detectLanguage()">{{ this.ayatBody }}</textarea>
           </div>    
-          <div v-if="surahSelected == true" class="navigation">
+          <div class="navigation">
              <button id="buttonPreviousAyat" class="btn btn-dark" @click="previousAyat()" :disabled="this.selectedAyat === 1 || buttonAyatPaging"> ⇐ </button>
              <button id="buttonNextAyat" class="btn btn-dark" @click="nextAyat()" :disabled="this.selectedAyat == this.surahAyat || buttonAyatPaging"> ⇒ </button>
              <audio controls>
@@ -36,25 +35,22 @@
           </div>
   
         </div>
-      </div>
   </template>
   
   <script>
-  import axios from 'axios';
   import SurahSelection from './SurahSelection.vue';
-  import mitt from 'mitt';
-
+  import axios from 'axios';
   
   export default {
     name: 'AyatContent',
     components:{
       SurahSelection
     },
+    emits:['selectedSurahStatus'],
     data() {
       return {
-        surahSelectedNumber: 0, //
+        surahSelectedNumber: "", //
         surahSelectedName: "",  // Daten kommen von Json String Event aus SurahSelection Vue
-        surahSelected: false,   //
         ayatBody: "",
         surahAyat: 0,
         selectedAyat: 1,
@@ -64,15 +60,23 @@
       }
     },
     mounted() {
-      //this.displaySurahAyat();
-      const emitter = mitt();
-      emitter.on('surahSelectedEvent', (surahData) => {
-        console.log(surahData);
-      });
+      this.consumeJsonSurah();
+      this.displaySurahAyat();
     },
     methods:{
       displaySurahAyat(link){
-        this.ayatBody = GetAyatCall.displaySurahAyat(null,this.surahSelectedNumber,this.selectedAyat)
+        if(link == null){
+          link = `http://api.alquran.cloud/v1/ayah/${this.surahSelectedNumber}:${this.selectedAyat}`
+        }
+        axios.get(link)
+        .then(response => {
+          this.ayatBody = response.data.data.text
+        })
+        .catch(error => {
+          console.log(error);
+          window.alert("ayat does not exists ore the service has a problem, please try it again")
+          this.selectedAyat = 1
+        });  
       },
       translate(){
         if(this.translation == false){
@@ -90,8 +94,14 @@
         }
         return 'ar'
       },
+      searchAyat(){
+        const ayat = document.getElementById('ayatSelector')
+        this.selectedAyat = ayat.value
+        this.ayatSearch = false
+        this.displaySurahAyat()   
+      },
       selectSurah(){
-        this.surahSelected = false;
+        this.$emit('selectedSurahStatus')
         this.ayatBody = " "
         this.selectedAyat = 1
       },
@@ -114,6 +124,12 @@
         this.translation = false
         this.selectedAyat++
         this.displaySurahAyat();
+      },
+      consumeJsonSurah(){
+        const cachedSurah = JSON.parse(localStorage.getItem('surahCache'));
+        this.surahSelectedNumber = cachedSurah.numberSurah
+        this.surahSelectedName = cachedSurah.nameSurah
+        this.surahAyat = cachedSurah.ayatSurah
       }
     }
   }

@@ -13,10 +13,9 @@
 </template>
 
 <script>
-import mitt from 'mitt';
-
 export default {
   name: 'SurahSelection',
+  emits:['selectedSurahStatus'],
   data() {
     return {
       //SurahSelector
@@ -48,8 +47,6 @@ export default {
       }
     },
     getSelectedSurah(){
-      this.surahSelected = true;
-
       const selectedSurah = document.getElementById('surahSelector')
       const surahData = selectedSurah.value.split('~')
       const surahSelectedNumber = surahData[0].replace(/\s+/g, '')
@@ -57,13 +54,11 @@ export default {
 
       const filterSurahArr = this.arrSurah.filter(x => x.number == surahSelectedNumber)
       const surahAyat = filterSurahArr[0].numberAyahs
-      this.createJsonData(this.surahSelected, surahSelectedNumber,surahSelectedName,surahAyat)
-      const emitter = mitt();
-      emitter.emit('surahSelectedEvent', this.surahJsonData);
+      this.createJsonData(surahSelectedNumber,surahSelectedName,surahAyat)
+      this.$emit('selectedSurahStatus')
     },
-    createJsonData(selected,number,name,ayat){
-      const surah = {selectedSurah: selected, numberSurah: number, nameSurah: name, ayatSurah: ayat};   
-      this.surahJsonData = JSON.stringify(surah);
+    createJsonData(number,name,ayat){
+      localStorage.setItem('surahCache', JSON.stringify({numberSurah: number, nameSurah: name, ayatSurah: ayat}));
     },
     previousPageSurah() {
       this.pageSurah--;
