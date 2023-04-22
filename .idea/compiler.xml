@@ -10,9 +10,6 @@
         <module name="fsjava" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="fsjava" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
