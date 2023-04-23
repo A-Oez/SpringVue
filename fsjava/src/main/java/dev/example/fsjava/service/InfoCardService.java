@@ -46,7 +46,7 @@ public class InfoCardService {
             InfoCardDTO infoCardDTO = new Gson().fromJson(jsonInbound, InfoCardDTO.class);
             InfoCardModel infoCardModel = InfoCardMapper.convertToModel(infoCardDTO);
             message = new ResponseEntity<>("Datensatz erfolgreich erstellt", HttpStatus.CREATED);
-            if(infoCardDAO.addData(infoCardModel) == false) {
+            if(!infoCardDAO.addData(infoCardModel)) {
                 message = new ResponseEntity<>(
                         "Fehler beim Erstellen des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut"
                          , HttpStatus.INTERNAL_SERVER_ERROR);
@@ -69,7 +69,7 @@ public class InfoCardService {
             InfoCardDTO infoCardDTO = new Gson().fromJson(jsonInbound, InfoCardDTO.class);
             InfoCardModel infoCardModel = InfoCardMapper.convertToModel(infoCardDTO);
             message = new ResponseEntity<>("Datensatz erfolgreich geupdatet", HttpStatus.CREATED);
-            if(infoCardDAO.updateData(infoCardModel) == false){
+            if(!infoCardDAO.updateData(infoCardModel)){
                 message = new ResponseEntity<>(
                      "Fehler beim updaten des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut"
                          , HttpStatus.INTERNAL_SERVER_ERROR);
@@ -90,7 +90,7 @@ public class InfoCardService {
 
         try{
             message = new ResponseEntity<>("Datensatz erfolgreich gelöscht", HttpStatus.CREATED);
-            if(infoCardDAO.deleteData(ID) == false){
+            if(!infoCardDAO.deleteData(ID)){
                 message = new ResponseEntity<>
                         ("Fehler beim löschen des Datensatzes\nKorrigieren sie die Struktur oder versuchen es später erneut"
                          , HttpStatus.INTERNAL_SERVER_ERROR);
